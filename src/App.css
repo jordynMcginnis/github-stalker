@@ -1,14 +1,12 @@
 .App {
-  text-align: center;
+
+  width: 100vw;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
 
 .App-header {
   background-color: #24292f;
+  width: 100vw;
   height: 60px;
   color: white;
   display: flex;
@@ -16,21 +14,85 @@
   justify-content: center;
 }
 
-.Search-title {
-  font-size: 1.5em;
-}
 
 .App-intro {
-  font-size: large;
+  margin: 0 auto;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 80vw;
+  min-width: 310px;
+  max-width: 1000px;
 }
 
+.github-icon {
+  font-size: 30px;
+  padding: 10px;
+}
 
 .search-input {
   background-color: #3f4449;
   border-color: transparent;
   border-radius: 3px;
-  width: 30vw;
+  width: 50vw;
   height: 25px;
   outline: none;
-  color: #898c8f;
+  color: #8c8f92;
+  max-width: 400px;
+}
+
+.Bio {
+  width: 20vw;
+  height: 70vh;
+  min-width: 105px;
+  max-width: 300px;
+  color: #999999;
+  font-size: 1vmax;
+
+}
+
+.Bio h1 {
+  font-size: 2vmax;
+  color: black;
+}
+.bio-photo {
+  margin: 0 auto;
+  background-image: url('./photos/girl.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 50%;
+  width: 70%;
+}
+
+.Nav {
+  width: 58vw;
+}
+
+.Nav-bar {
+  height: 50px;
+  min-width: 100px;
+  border-bottom-style: solid;
+  border-bottom-color: #8c8f92;
+  border-bottom-width: 1px;
+  display: flex;
+  justify-content: space-around;
+  max-width: 750px;
+}
+.Nav-bar div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  list-style: none;
+}
+
+.Nav-bar div:hover {
+  border-bottom-style: solid;
+  border-bottom-color: #8c8f92;
+  border-bottom-width: 2px;
+}
+
+.results {
+  background-color: yellow;
+  margin-top: 15%;
 }

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Search from './components/search.js';
+import Bio from './components/Bio.js';
+import Nav from './components/Nav.js';
+
 class App extends Component {
   render() {
     return (
@@ -8,9 +11,15 @@ class App extends Component {
         <header className="App-header">
           <Search/>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="App-intro">
+          <Bio
+            name= 'Jordyn McGinnis'
+            userName='jordynMcginnis'
+            summary='Hi, my name is Jordyn and I love creating user interfaces that are responsive, clean, and easy to use!'
+          />
+          <Nav/>
+
+        </div>
       </div>
     );
   }
