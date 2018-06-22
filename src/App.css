@@ -8,13 +8,15 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+  background-color: #24292f;
+  height: 60px;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.App-title {
+.Search-title {
   font-size: 1.5em;
 }
 
@@ -22,7 +24,13 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+
+.search-input {
+  background-color: #3f4449;
+  border-color: transparent;
+  border-radius: 3px;
+  width: 30vw;
+  height: 25px;
+  outline: none;
+  color: #898c8f;
 }
