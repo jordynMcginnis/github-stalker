@@ -4,17 +4,25 @@ import Search from './components/search.js';
 import Bio from './components/Bio.js';
 import Nav from './components/Nav.js';
 import GoStar from 'react-icons/lib/go/star';
+import {getProfile} from './utils/api.js';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName : ''
+      result: ''
     }
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick({target}) {
-     this.setState(({userName: target.value}))
+    getProfile(target.value)
+    .then(function(repos){
+      this.setState(function(){
+        return {
+          result: repos
+        }
+      })
+    }.bind(this))
   }
   render() {
     return (
@@ -22,12 +30,12 @@ class App extends Component {
         <header className="App-header">
           <Search handleClick={this.handleClick}/>
         </header>
-        {this.state.userName !== ''
+        {this.state.result !== ''
           ? <div className="App-intro">
               <Bio
-                name= 'Jordyn McGinnis'
-                userName='jordynMcginnis'
-                summary='Hi, my name is Jordyn and I love creating user interfaces that are responsive, clean, and easy to use!'
+                name= {this.state.result.name}
+                userName={this.state.result.login}
+                summary={this.state.result.bio}
               />
               <Nav/>
             </div>
