@@ -9,23 +9,21 @@ class Nav extends Component {
     }
     this.handleClick = this.handleClick.bind(this);
   }
-
+  handleClick (e, selection) {
+    this.setState(({render: selection}))
+  }
   render() {
-
     return (
       <div className="Nav">
         <div className='Nav-bar'>
-          <div>Contributions</div>
-          <div>other</div>
-          <div>Item</div>
+          <div onClick = {(e) => this.handleClick(e, 'Contributions')}>Contributions</div>
         </div>
         <div className='results'>
           {this.state.render === 'Contributions' ? <Contributions/> : null}
-
         </div>
         <div className='tweet'>
-          <button> download </button>
-          <button>tweet </button>
+          <button> Download </button>
+          <button>Tweet </button>
         </div>
       </div>
     );

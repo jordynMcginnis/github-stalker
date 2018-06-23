@@ -98,6 +98,16 @@
   margin-top: 6%;
 }
 
+
+.Contributions {
+  width: 100%;
+  background-color: red;
+
+}
+
+
+
+
 .tweet {
   display: flex;
   justify-content: flex-end;
@@ -118,8 +128,8 @@
   border-top-style: solid;
   border-top-color: grey;
   justify-content: space-around;
-  position:absolute;
-  bottom:0;
   width:100%;
-  height:60px;
+  height:30px;
+
 }
+
