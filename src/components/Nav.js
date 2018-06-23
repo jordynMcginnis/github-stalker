@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
 import Contributions from './Contributions.js';
+
 class Nav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      render: 'Contributions'
+    }
+    this.handleClick = this.handleClick.bind(this);
+  }
+
   render() {
+
     return (
       <div className="Nav">
         <div className='Nav-bar'>
@@ -10,7 +20,8 @@ class Nav extends Component {
           <div>Item</div>
         </div>
         <div className='results'>
-          <Contributions/>
+          {this.state.render === 'Contributions' ? <Contributions/> : null}
+
         </div>
         <div className='tweet'>
           <button> download </button>
