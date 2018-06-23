@@ -18,7 +18,9 @@ class App extends Component {
             summary='Hi, my name is Jordyn and I love creating user interfaces that are responsive, clean, and easy to use!'
           />
           <Nav/>
-
+        </div>
+        <div className='author'>
+          JORDYN MCGINNIS
         </div>
       </div>
     );

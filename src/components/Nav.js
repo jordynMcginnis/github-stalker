@@ -10,7 +10,11 @@ class Nav extends Component {
           <div>Item</div>
         </div>
         <div className='results'>
-        hii
+          <Contributions/>
+        </div>
+        <div className='tweet'>
+          <button> download </button>
+          <button>tweet </button>
         </div>
       </div>
     );
