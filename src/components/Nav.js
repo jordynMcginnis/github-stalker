@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Contributions from './Contributions.js';
+import Followers from './Followers.js';
 
 class Nav extends Component {
   constructor(props) {
@@ -17,9 +18,11 @@ class Nav extends Component {
       <div className="Nav">
         <div className='Nav-bar'>
           <div onClick = {(e) => this.handleClick(e, 'Contributions')}>Contributions</div>
+          <div onClick = {(e) => this.handleClick(e, 'Followers')}> Popular Followers</div>
         </div>
         <div className='results'>
-          {this.state.render === 'Contributions' ? <Contributions/> : null}
+          {this.state.render === 'Contributions' ? <Contributions contributions={this.props.contributions}/> : null}
+          {this.state.render === 'Followers' ? <Followers contributions={this.props.followers}/> : null}
         </div>
         <div className='tweet'>
           <button> Download </button>

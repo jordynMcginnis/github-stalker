@@ -1,5 +1,4 @@
 .App {
-
   width: 100vw;
 }
 
@@ -48,13 +47,13 @@
   max-width: 300px;
   color: #999999;
   font-size: 1vmax;
-
 }
 
 .Bio h1 {
   font-size: 2vmax;
   color: black;
 }
+
 .bio-photo {
   margin: 0 auto;
   background-image: url('./photos/girl.jpeg');
@@ -79,6 +78,7 @@
   max-width: 750px;
   color: #8c8f92;
 }
+
 .Nav-bar div {
   display: flex;
   justify-content: center;
@@ -94,19 +94,13 @@
 }
 
 .results {
-
   margin-top: 6%;
 }
-
 
 .Contributions {
   width: 100%;
   background-color: red;
-
 }
-
-
-
 
 .tweet {
   display: flex;
@@ -114,6 +108,7 @@
   height: 30px;
   margin-top: 10px;
 }
+
 .tweet button {
   color: white;
   background-color: grey;
@@ -130,6 +125,21 @@
   justify-content: space-around;
   width:100%;
   height:30px;
+}
+
+.month {
+  height: 50px;
+  width: 50px;
+}
+
+.status-light-green{
+  height: 1px;
+  width: 1px;
+  background-color: green;
+}
+
+.status-dark-green{
 
 }
+
 

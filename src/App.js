@@ -4,13 +4,15 @@ import Search from './components/search.js';
 import Bio from './components/Bio.js';
 import Nav from './components/Nav.js';
 import GoStar from 'react-icons/lib/go/star';
-import {getProfile} from './utils/api.js';
+import {getProfile, getContributions, getFollowers} from './utils/api.js';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      result: ''
+      result: '',
+      contributions: '',
+      followers: ''
     }
     this.handleClick = this.handleClick.bind(this);
   }
@@ -20,6 +22,24 @@ class App extends Component {
       this.setState(function(){
         return {
           result: repos
+        }
+      })
+    }.bind(this))
+
+    getContributions(target.value)
+    .then(function(repos){
+      this.setState(function(){
+        return {
+          contributions: repos
+        }
+      })
+    }.bind(this))
+    getFollowers(target.value)
+    .then(function(followers){
+      console.log('this is the response', followers)
+      this.setState(function(){
+        return {
+          followers: followers
         }
       })
     }.bind(this))
@@ -37,7 +57,7 @@ class App extends Component {
                 userName={this.state.result.login}
                 summary={this.state.result.bio}
               />
-              <Nav/>
+              <Nav contributions={this.state.contributions} followers={this.state.contributions}/>
             </div>
           : null
         }

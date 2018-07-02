@@ -1,9 +1,9 @@
 var axios = require('axios');
 
-var id = 'YOUR_CLIENT_ID';
-var sec = "YOUR_SECRET_ID";
+var id = 'd96cbb4c107cc58c45e2';
+var sec = "9d9d4df620267d122ce90131abfc34dd5f77646f";
 var params = '?client_id' + id + "&client_secret=" + sec;
-
+var header =  { 'headers': { 'Accept': 'application/vnd.github.cloak-preview' } }
 
 
 
@@ -16,10 +16,33 @@ module.exports = {
     });
   },
   getContributions: function (username) {
-    return axios.get('https://api.github.com/users/' + username + params)
+    return axios.get('https://api.github.com/search/commits?q=author:' + username, header + params)
     .then(function(user){
-      console.log(user.data);
-      return user.data;
+      //console.log('here', user.data);
+      return user.data
     });
+  },
+  getFollowers: function (username) {
+    var count = -1;
+    var top5 = [];
+    return axios.get('https://api.github.com/users/'+ username + '/followers', header + params)
+    .then(function(users){
+      count = users.data.length;
+      for(var i = 0; i < users.data.length; i++){
+        return axios.get('https://api.github.com/users/' + users.data[i].login + params)
+         .then(function(user){
+          top5.push(user.data);
+         console.log(user.data);
+         if(top5.length === count){
+          return top5;
+         }
+        });
+      }
+      while(top5.length === 0){
+        return 'hi'
+      }
+
+    });
+
   }
 };
