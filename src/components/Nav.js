@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Contributions from './Contributions.js';
 import Followers from './Followers.js';
+import Fan from './Fan.js';
+import Events from './Events.js';
 
 class Nav extends Component {
   constructor(props) {
@@ -20,6 +22,7 @@ class Nav extends Component {
           <div onClick = {(e) => this.handleClick(e, 'Contributions')}>Contributions</div>
           <div onClick = {(e) => this.handleClick(e, 'Followers')}> Popular Followers</div>
           <div onClick = {(e) => this.handleClick(e, 'Events')}> Events</div>
+          <div onClick = {(e) => this.handleClick(e, 'Fan')}> Fan</div>
         </div>
         <div className='results'>
           {this.state.render === 'Contributions' ? <Contributions contributions={this.props.contributions}/> : null}
