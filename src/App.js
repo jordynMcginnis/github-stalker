@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       result: '',
       contributions: '',
-      followers: ''
+      followers: '',
+      events: ''
     }
     this.handleClick = this.handleClick.bind(this);
     //this.handlePopular = this.handlePopular.bind(this);
@@ -35,15 +36,26 @@ class App extends Component {
         }
       })
     }.bind(this))
-    getFollowers(target.value)
-    .then(function(followers){
-      console.log('this is the response', followers)
+
+    // getFollowers(target.value)
+    // .then(function(followers){
+    //   console.log('this is the response', followers)
+    //   this.setState(function(){
+    //     return {
+    //       followers: followers
+    //     }
+    //   })
+    // }.bind(this))
+
+    getEvents(target.value)
+    .then(function(events){
       this.setState(function(){
         return {
-          followers: followers
+          events: events
         }
       })
     }.bind(this))
+
   }
 
   render() {
@@ -59,7 +71,7 @@ class App extends Component {
                 userName={this.state.result.login}
                 summary={this.state.result.bio}
               />
-              <Nav contributions={this.state.contributions} followers={this.state.contributions} />
+              <Nav contributions={this.state.contributions} followers={this.state.contributions} events={this.state.events}/>
             </div>
           : null
         }
