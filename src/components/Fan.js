@@ -4,7 +4,8 @@ class Fan extends Component {
   render() {
     return (
       <div className='Contributions'>
-        FAN
+        Current biggest fan:
+
       </div>
     );
   }

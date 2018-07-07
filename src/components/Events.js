@@ -4,7 +4,7 @@ class Events extends Component {
   render() {
     return (
       <div className='Events'>
-        Events
+        What other people are doing with your github
       </div>
     );
   }

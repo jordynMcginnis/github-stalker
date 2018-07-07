@@ -4,7 +4,7 @@ import Search from './components/search.js';
 import Bio from './components/Bio.js';
 import Nav from './components/Nav.js';
 import GoStar from 'react-icons/lib/go/star';
-import {getProfile, getContributions, getFollowers} from './utils/api.js';
+import {getProfile, getContributions, getFollowers, getEvents} from './utils/api.js';
 
 class App extends Component {
   constructor(props) {

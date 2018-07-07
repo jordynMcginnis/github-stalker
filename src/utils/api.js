@@ -1,5 +1,4 @@
 var axios = require('axios');
-
 var id = 'd96cbb4c107cc58c45e2';
 var sec = "9d9d4df620267d122ce90131abfc34dd5f77646f";
 var params = '?client_id' + id + "&client_secret=" + sec;
@@ -41,8 +40,14 @@ module.exports = {
       while(top5.length === 0){
         return 'hi'
       }
-
     });
+  },
+  getEvents: function (username) {
+    return axios.get('https://api.github.com/users/' + username + '/received_events/public?per_page=100', header + params)
+    .then(function(user){
+      //console.log('here', user.data);
+      return user.data
+    });
+  },
 
-  }
 };
