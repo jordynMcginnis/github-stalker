@@ -19,6 +19,7 @@ class Nav extends Component {
         <div className='Nav-bar'>
           <div onClick = {(e) => this.handleClick(e, 'Contributions')}>Contributions</div>
           <div onClick = {(e) => this.handleClick(e, 'Followers')}> Popular Followers</div>
+          <div onClick = {(e) => this.handleClick(e, 'Events')}> Events</div>
         </div>
         <div className='results'>
           {this.state.render === 'Contributions' ? <Contributions contributions={this.props.contributions}/> : null}

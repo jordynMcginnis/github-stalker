@@ -15,6 +15,7 @@ class App extends Component {
       followers: ''
     }
     this.handleClick = this.handleClick.bind(this);
+    //this.handlePopular = this.handlePopular.bind(this);
   }
   handleClick({target}) {
     getProfile(target.value)
@@ -44,6 +45,7 @@ class App extends Component {
       })
     }.bind(this))
   }
+
   render() {
     return (
       <div className="App">
@@ -57,7 +59,7 @@ class App extends Component {
                 userName={this.state.result.login}
                 summary={this.state.result.bio}
               />
-              <Nav contributions={this.state.contributions} followers={this.state.contributions}/>
+              <Nav contributions={this.state.contributions} followers={this.state.contributions} />
             </div>
           : null
         }
