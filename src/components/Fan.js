@@ -27,8 +27,7 @@ class Fan extends Component {
 
     return (
       <div className='Contributions'>
-        <p className='fan-name'> {name} </p>
-        <div className='f-result guide'> <span> Event </span> <span> Repo</span> <span> Date</span> </div>
+        <p className='fan-name'> {name}'s </p>
         <div className='fan-results'>
           {personEvent.map(function(item){
             return <div className='f-result'> <span> {item.type}: </span>  {item.repo.name}<span> {item.created_at.slice(0,10)}</span> </div>

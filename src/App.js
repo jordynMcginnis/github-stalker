@@ -5,6 +5,7 @@ import Bio from './components/Bio.js';
 import Nav from './components/Nav.js';
 import GoStar from 'react-icons/lib/go/star';
 import {getProfile, getContributions, getFollowers, getEvents} from './utils/api.js';
+import Main from './components/Main.js';
 
 class App extends Component {
   constructor(props) {
@@ -74,14 +75,9 @@ class App extends Component {
               />
               <Nav contributions={this.state.contributions} followers={this.state.contributions} events={this.state.events} fan={this.state.events} person={this.state.person}/>
             </div>
-          : null
+          : <Main/>
         }
-        <div className='author'>
-          JORDYN MCGINNIS
-          <div>
-            <GoStar/> Star
-          </div>
-        </div>
+
       </div>
     );
   }

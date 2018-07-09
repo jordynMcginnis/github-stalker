@@ -125,6 +125,7 @@
   justify-content: space-around;
   width:100%;
   height:30px;
+  background-color: #242930;
 }
 
 .month {
@@ -159,6 +160,10 @@
   justify-content: center;
   font-size: 2vmax;
   color: black;
+  background-image: url('./photos/kiss.png');
+  background-size: contain;
+
+  background-repeat: no-repeat;
 }
 .f-result {
   display: flex;
@@ -170,4 +175,13 @@
   border-top-style: solid;
   border-top-color: #dbdbdb;
 
+}
+
+.Main {
+  height: 90vh;
+  width: 90vw;
+  background-image: url('./photos/stalker.png');
+  background-size: 50 50;
+  background-position: center;
+  background-repeat: no-repeat;
 }

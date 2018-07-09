@@ -22,7 +22,7 @@ class Nav extends Component {
           <div onClick = {(e) => this.handleClick(e, 'Contributions')}>Contributions</div>
           <div onClick = {(e) => this.handleClick(e, 'Followers')}> Popular Followers</div>
           <div onClick = {(e) => this.handleClick(e, 'Events')}> Events</div>
-          <div onClick = {(e) => this.handleClick(e, 'Fan')}> Fan</div>
+          <div onClick = {(e) => this.handleClick(e, 'Fan')}> Stalker</div>
         </div>
         <div className='results'>
           {this.state.render === 'Contributions' ? <Contributions contributions={this.props.contributions}/> : null}
