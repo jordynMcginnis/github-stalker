@@ -23,9 +23,9 @@ class Events extends Component {
         }, {}));
     return (
       <div className='Events'>
-        Events from Users from  {order[order.length - 1].created_at.slice(0,10)} to {order[0].created_at.slice(0,10)}
+        <p> Events from Users from  {order[order.length - 1].created_at.slice(0,10)} to {order[0].created_at.slice(0,10)} </p>
         {results.map(function(item, index){
-          return <p> {item} : {other[index]} </p>
+          return <div className= 'f-result'> {item} : {other[index]} </div>
         })}
         {console.log(order)}
       </div>
