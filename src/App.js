@@ -51,7 +51,8 @@ class App extends Component {
     .then(function(events){
       this.setState(function(){
         return {
-          events: events
+          events: events,
+          person: target.value
         }
       })
     }.bind(this))
@@ -71,7 +72,7 @@ class App extends Component {
                 userName={this.state.result.login}
                 summary={this.state.result.bio}
               />
-              <Nav contributions={this.state.contributions} followers={this.state.contributions} events={this.state.events}/>
+              <Nav contributions={this.state.contributions} followers={this.state.contributions} events={this.state.events} fan={this.state.events} person={this.state.person}/>
             </div>
           : null
         }

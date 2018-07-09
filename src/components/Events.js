@@ -13,7 +13,7 @@ class Events extends Component {
           }
           return result;
         }, {}));
-            var other = Object.values(this.props.events.reduce(function(result, item){
+        var other = Object.values(this.props.events.reduce(function(result, item){
           if(!result[item.type]){
             result[item.type] = 1;
           } else {
@@ -23,7 +23,7 @@ class Events extends Component {
         }, {}));
     return (
       <div className='Events'>
-        Number of events this week from Users: {order[0].created_at} : {order[order.length - 1].created_at}
+        Events from Users from  {order[order.length - 1].created_at.slice(0,10)} to {order[0].created_at.slice(0,10)}
         {results.map(function(item, index){
           return <p> {item} : {other[index]} </p>
         })}

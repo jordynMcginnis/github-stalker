@@ -99,7 +99,7 @@
 
 .Contributions {
   width: 100%;
-  background-color: red;
+
 }
 
 .tweet {
@@ -144,6 +144,28 @@
 
 .Events {
   width: 100%;
-  background-color: red;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
 }
 
+.fan-name {
+  display: flex;
+  justify-content: center;
+  font-size: 2vmax;
+  color: black;
+}
+.f-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #dbdbdb;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #dbdbdb;
+}
