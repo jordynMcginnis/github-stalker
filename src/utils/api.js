@@ -10,14 +10,14 @@ module.exports = {
   getProfile: function (username) {
     return axios.get('https://api.github.com/users/' + username + params)
     .then(function(user){
-      console.log(user.data);
+      console.log('profile', user.data);
       return user.data;
     });
   },
   getContributions: function (username) {
-    return axios.get('https://api.github.com/search/commits?q=author:' + username, header + params)
+    return axios.get('https://api.github.com/search/commits?q=repo:octocat/Spoon-Knife+css', header + params)
     .then(function(user){
-      //console.log('here', user.data);
+      console.log('here', user.data);
       return user.data
     });
   },
