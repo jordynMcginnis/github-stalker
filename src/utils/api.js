@@ -49,5 +49,11 @@ module.exports = {
       return user.data
     });
   },
-
+    getIssues: function (username) {
+    return axios.get('https://api.github.com/search/issues?q=involves:' + username +' created:>=2018-01-01', header + params)
+    .then(function(user){
+      //console.log('here', user.data);
+      return user.data
+    });
+  },
 };

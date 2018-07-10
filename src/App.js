@@ -4,7 +4,7 @@ import Search from './components/search.js';
 import Bio from './components/Bio.js';
 import Nav from './components/Nav.js';
 import GoStar from 'react-icons/lib/go/star';
-import {getProfile, getContributions, getFollowers, getEvents} from './utils/api.js';
+import {getProfile, getContributions, getFollowers, getEvents, getIssues} from './utils/api.js';
 import Main from './components/Main.js';
 
 class App extends Component {
@@ -14,7 +14,8 @@ class App extends Component {
       result: '',
       contributions: '',
       followers: '',
-      events: ''
+      events: '',
+      issues: ''
     }
     this.handleClick = this.handleClick.bind(this);
     //this.handlePopular = this.handlePopular.bind(this);
@@ -58,6 +59,15 @@ class App extends Component {
       })
     }.bind(this))
 
+    getIssues(target.value)
+    .then(function(res){
+      this.setState(function(){
+        return {
+          issues: res
+        }
+      })
+    }.bind(this))
+
   }
 
   render() {
@@ -76,7 +86,7 @@ class App extends Component {
                 location={this.state.result.location}
                 repos={this.state.result.public_repos}
               />
-              <Nav contributions={this.state.contributions} followers={this.state.contributions} events={this.state.events} fan={this.state.events} person={this.state.person}/>
+              <Nav contributions={this.state.contributions} followers={this.state.contributions} events={this.state.events} fan={this.state.events} person={this.state.person} issues={this.state.issues}/>
             </div>
           : <Main/>
         }
