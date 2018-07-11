@@ -42,6 +42,13 @@ module.exports = {
       }
     });
   },
+  fetchFollowers: function (username) {
+    return axios.get('https://api.github.com/users/' + username + '/followers', header + params)
+    .then(function(user){
+      //console.log('here', user.data);
+      return user.data
+    });
+  },
   getEvents: function (username) {
     return axios.get('https://api.github.com/users/' + username + '/received_events/public?per_page=100', header + params)
     .then(function(user){

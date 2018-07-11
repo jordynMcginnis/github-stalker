@@ -4,7 +4,7 @@ import Search from './components/search.js';
 import Bio from './components/Bio.js';
 import Nav from './components/Nav.js';
 import GoStar from 'react-icons/lib/go/star';
-import {getProfile, getContributions, getFollowers, getEvents, getIssues} from './utils/api.js';
+import {getProfile, getContributions, getFollowers, getEvents, getIssues, fetchFollowers} from './utils/api.js';
 import Main from './components/Main.js';
 
 class App extends Component {
@@ -15,9 +15,11 @@ class App extends Component {
       contributions: '',
       followers: '',
       events: '',
-      issues: ''
+      issues: '',
+      list: [],
     }
     this.handleClick = this.handleClick.bind(this);
+    this.handleFollower = this.handleFollower.bind(this);
     //this.handlePopular = this.handlePopular.bind(this);
   }
   handleClick({target}) {
@@ -39,15 +41,19 @@ class App extends Component {
       })
     }.bind(this))
 
-    // getFollowers(target.value)
-    // .then(function(followers){
-    //   console.log('this is the response', followers)
-    //   this.setState(function(){
-    //     return {
-    //       followers: followers
-    //     }
-    //   })
-    // }.bind(this))
+    fetchFollowers(target.value)
+    .then(function(followers){
+      var that = this;
+      followers.map(function(person){
+        that.handleFollower(person.login)
+      });
+      console.log('this is the response', followers)
+      this.setState(function(){
+        return {
+          followers: followers
+        }
+      })
+    }.bind(this))
 
     getEvents(target.value)
     .then(function(events){
@@ -67,9 +73,19 @@ class App extends Component {
         }
       })
     }.bind(this))
-
   }
-
+  handleFollower (person) {
+    console.log('this is running', person);
+    getProfile(person)
+    .then(function(repos){
+      var final = this.state.list.concat(repos);
+      this.setState(function(){
+        return {
+          list: final
+        }
+      })
+    }.bind(this))
+  }
   render() {
     return (
       <div className="App">
@@ -86,7 +102,7 @@ class App extends Component {
                 location={this.state.result.location}
                 repos={this.state.result.public_repos}
               />
-              <Nav contributions={this.state.contributions} followers={this.state.contributions} events={this.state.events} fan={this.state.events} person={this.state.person} issues={this.state.issues}/>
+              <Nav contributions={this.state.contributions} followers={this.state.followers} events={this.state.events} fan={this.state.events} person={this.state.person} issues={this.state.issues}/>
             </div>
           : <Main/>
         }
