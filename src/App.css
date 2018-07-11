@@ -185,3 +185,12 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.Followers{
+  width: 100%;
+  background-color: red;
+}
+
+.map{
+  width: 50%;
+}

@@ -102,7 +102,7 @@ class App extends Component {
                 location={this.state.result.location}
                 repos={this.state.result.public_repos}
               />
-              <Nav contributions={this.state.contributions} followers={this.state.followers} events={this.state.events} fan={this.state.events} person={this.state.person} issues={this.state.issues}/>
+              <Nav contributions={this.state.contributions} followers={this.state.followers} list={this.state.list} events={this.state.events} fan={this.state.events} person={this.state.person} issues={this.state.issues}/>
             </div>
           : <Main/>
         }

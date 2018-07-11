@@ -28,7 +28,7 @@ class Nav extends Component {
         </div>
         <div className='results'>
           {this.state.render === 'Contributions' ? <Contributions contributions={this.props.contributions}/> : null}
-          {this.state.render === 'Followers' ? <Followers contributions={this.props.followers}/> : null}
+          {this.state.render === 'Followers' ? <Followers contributions={this.props.followers} list={this.props.list}/> : null}
           {this.state.render === 'Events' ? <Events events={this.props.events}/> : null}
           {this.state.render === 'Fan' ? <Fan events={this.props.events} person={this.props.person}/> : null}
           {this.state.render === 'Issues' ? <Issues issues={this.props.issues}/> : null}
