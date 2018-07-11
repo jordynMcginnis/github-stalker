@@ -37,7 +37,6 @@ class Issues extends Component {
        <Legend />
        <Bar dataKey="issues" fill="red" />
       </BarChart>
-      {console.log('hereee', result)}
       This qualifier finds issues and pull requests that were either created by a certain user, assigned to that user, mention that user, or were commented on by that user.
       </div>
 

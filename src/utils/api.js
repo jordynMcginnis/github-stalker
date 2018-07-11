@@ -10,14 +10,14 @@ module.exports = {
   getProfile: function (username) {
     return axios.get('https://api.github.com/users/' + username + params)
     .then(function(user){
-      console.log('profile', user.data);
+      //console.log('profile', user.data);
       return user.data;
     });
   },
   getContributions: function (username) {
     return axios.get('https://api.github.com/search/commits?q=repo:octocat/Spoon-Knife+css', header + params)
     .then(function(user){
-      console.log('here', user.data);
+      //console.log('here', user.data);
       return user.data
     });
   },
@@ -31,7 +31,7 @@ module.exports = {
         return axios.get('https://api.github.com/users/' + users.data[i].login + params)
          .then(function(user){
           top5.push(user.data);
-         console.log(user.data);
+
          if(top5.length === count){
           return top5;
          }

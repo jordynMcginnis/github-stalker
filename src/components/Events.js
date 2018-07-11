@@ -27,7 +27,6 @@ class Events extends Component {
         {results.map(function(item, index){
           return <div className= 'f-result'> {item} : {other[index]} </div>
         })}
-        {console.log(order)}
       </div>
     );
   }

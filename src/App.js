@@ -47,7 +47,6 @@ class App extends Component {
       followers.map(function(person){
         that.handleFollower(person.login)
       });
-      console.log('this is the response', followers)
       this.setState(function(){
         return {
           followers: followers
@@ -75,7 +74,6 @@ class App extends Component {
     }.bind(this))
   }
   handleFollower (person) {
-    console.log('this is running', person);
     getProfile(person)
     .then(function(repos){
       var final = this.state.list.concat(repos);
