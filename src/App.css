@@ -147,7 +147,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-
   justify-content: center;
 }
 
@@ -162,7 +161,6 @@
   color: black;
   background-image: url('./photos/kiss.png');
   background-size: contain;
-
   background-repeat: no-repeat;
 }
 .f-result {
@@ -170,11 +168,9 @@
   align-items: center;
   justify-content: space-between;
   height: 60px;
-
   border-top-width: 1px;
   border-top-style: solid;
   border-top-color: #dbdbdb;
-
 }
 
 .Main {
@@ -188,9 +184,57 @@
 
 .Followers{
   width: 100%;
-
 }
 
 .map{
-  width: 50%;
+  width: 100%;
+  max-width: 800px;
+}
+.map-guide {
+  width: 100%;
+  background-color: red;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+.map-guide div {
+  margin: 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.most {
+  width: 70px;
+  height: 30px;
+}
+.most div {
+  width: 20px;
+  height: 20px;
+  background-color: #00a43c;
+}
+.middle {
+  width: 20px;
+  height: 20px;
+  background-color: #59d36e;
+  display: flex;
+  justify-content: center;
+}
+.least {
+  width: 20px;
+  height: 20px;
+  background-color: #bbec88;
+}
+.none div{
+  width: 20px;
+  height: 20px;
+  background-color: #d3d3d3;
+}
+
+.none {
+  width: 70px;
+  height: 30px;
+}
+.popularFollower {
+  background-color: red;
 }

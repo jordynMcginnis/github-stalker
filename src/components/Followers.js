@@ -197,9 +197,9 @@ class Followers extends Component {
     }
     console.log('count final:', count);
     const guide = {
-      more: '#f7dbf0',
-      middle: '#adc4e5',
-      low: '#e5e5ff',
+      more: '#00a43c',
+      middle: '#59d36e',
+      low: '#bbec88',
       none: '#f7dbf0'
     }
 
@@ -224,7 +224,14 @@ class Followers extends Component {
       <div className='Followers'>
         Followers Stats
         <div className='map'>
-          <USAMap customize={this.stateConversion(this.props.list)} />
+          <USAMap customize={this.stateConversion(this.props.list) } width='100%'/>
+          <div className= 'map-guide'>
+            <div className='most'> <div></div>More</div>
+            <div className='middle'> </div>
+            <div className='least'> </div>
+            <div className='none'> Less <div></div></div>
+          </div>
+
         </div>
         <div className='popularFollower'>
           <div> Most popular follower: {this.props.list.sort(function(a, b){ return b.followers - a.followers})[0].name}</div>
