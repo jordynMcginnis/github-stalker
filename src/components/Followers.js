@@ -226,7 +226,10 @@ class Followers extends Component {
         <div className='map'>
           <USAMap customize={this.stateConversion(this.props.list)} />
         </div>
-
+        <div>
+          <div> Most popular follower: </div>
+          <div> Results based on github user who has the most followers that is following user.</div>
+        <div>
       </div>
     );
   }
