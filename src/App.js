@@ -99,6 +99,7 @@ class App extends Component {
                 joined={this.state.result.created_at}
                 location={this.state.result.location}
                 repos={this.state.result.public_repos}
+                photo={this.state.result.avatar_url}
               />
               <Nav contributions={this.state.contributions} followers={this.state.followers} list={this.state.list} events={this.state.events} fan={this.state.events} person={this.state.person} issues={this.state.issues}/>
             </div>

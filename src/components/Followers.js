@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import USAMap from "react-usa-map";
-
+import Bio from './Bio.js';
 class Followers extends Component {
 
 
@@ -219,23 +219,30 @@ class Followers extends Component {
   return count;
 }
   render() {
-    var item = this.props.list[0];
+    var person = this.props.list.sort(function(a, b){ return b.followers - a.followers})[0];
     return (
       <div className='Followers'>
-        Followers Stats
-        <div className='map'>
-          <USAMap customize={this.stateConversion(this.props.list) } width='100%'/>
-          <div className= 'map-guide'>
+        <span className='stats'>Followers Stats - </span> Results based upon users who specify location within the USA.
+        <div className= 'map-guide'>
             <div className='most'> <div></div>More</div>
             <div className='middle'> </div>
             <div className='least'> </div>
             <div className='none'> Less <div></div></div>
           </div>
-
+        <div className='map'>
+          <USAMap customize={this.stateConversion(this.props.list) } width='100%'/>
         </div>
         <div className='popularFollower'>
-          <div> Most popular follower: {this.props.list.sort(function(a, b){ return b.followers - a.followers})[0].name}</div>
-          <div> Results based on github user who has the most followers that is following user.</div>
+          <div className='most-pop'> <span className='stats'>Most popular follower - </span>Results based on github user who has the most followers that is following user. </div>
+          <Bio
+                name= {person.name}
+                userName={person.login}
+                summary={person.bio}
+                joined={person.created_at}
+                location={person.location}
+                repos={person.public_repos}
+                photo={person.avatar_url}
+              />
         </div>
       </div>
     );

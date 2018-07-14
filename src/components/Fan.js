@@ -24,11 +24,16 @@ class Fan extends Component {
       return item.actor.login === name;
     });
 
-
+    // var photo = this.props.list.filter(function(item){
+    //   console.log(this.props.list)
+    //   return item.login === name;
+    // })[0];
     return (
       <div className='Contributions'>
-        <p className='fan-name'> {name}'s </p>
+        <p className='fan-name'>  {name === '' ? 'No Stalker' : name} </p>
+        <div> <span className='stats'> Github Stalker - </span> Results based on recent activity from users associated with {this.props.person}'s account.</div>
         <div className='fan-results'>
+
           {personEvent.map(function(item){
             return <div className='f-result'> <span> {item.type}: </span>  {item.repo.name}<span> {item.created_at.slice(0,10)}</span> </div>
           })}
