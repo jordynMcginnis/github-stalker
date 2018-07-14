@@ -219,15 +219,15 @@ class Followers extends Component {
   return count;
 }
   render() {
-
+    var item = this.props.list[0];
     return (
       <div className='Followers'>
         Followers Stats
         <div className='map'>
           <USAMap customize={this.stateConversion(this.props.list)} />
         </div>
-        <div>
-          <div> Most popular follower: </div>
+        <div className='popularFollower'>
+          <div> Most popular follower: {this.props.list.sort(function(a, b){ return b.followers - a.followers})[0].name}</div>
           <div> Results based on github user who has the most followers that is following user.</div>
         </div>
       </div>
