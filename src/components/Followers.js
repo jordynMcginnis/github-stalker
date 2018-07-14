@@ -229,7 +229,7 @@ class Followers extends Component {
         <div>
           <div> Most popular follower: </div>
           <div> Results based on github user who has the most followers that is following user.</div>
-        <div>
+        </div>
       </div>
     );
   }
