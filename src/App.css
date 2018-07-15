@@ -179,8 +179,8 @@
 .Main {
   height: 90vh;
   width: 90vw;
-  background-image: url('./photos/stalker.jpg');
-  background-size: 50 50;
+  background-image: url('./photos/stalker3.jpg');
+  background-size: 300px 200px;
   background-position: center;
   background-repeat: no-repeat;
 }

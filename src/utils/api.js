@@ -46,7 +46,7 @@ module.exports = {
     //location:utah
     return axios.get('https://api.github.com/users/' + username + '/followers'+ '?' + params, header )
     .then(function(user){
-      //console.log('here', user.data);
+      console.log('here are the headers:', user.headers);
       return user.data
     });
   },
