@@ -42,12 +42,12 @@ module.exports = {
       }
     });
   },
-  fetchFollowers: function (username) {
+  fetchFollowers: function (username, num) {
     //location:utah
-    return axios.get('https://api.github.com/users/' + username + '/followers'+ '?' + params, header )
+    return axios.get('https://api.github.com/users/' + username + '/followers'+ '?per_page=100&page='+num +'&' + params, header )
     .then(function(user){
       console.log('here are the headers:', user.headers);
-      return user.data
+      return user
     });
   },
   getEvents: function (username) {

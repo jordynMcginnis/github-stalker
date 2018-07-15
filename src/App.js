@@ -13,13 +13,15 @@ class App extends Component {
     this.state = {
       result: '',
       contributions: '',
-      followers: '',
+      followers: [],
       events: '',
       issues: '',
       list: [],
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleFollower = this.handleFollower.bind(this);
+    this.gatherAllFollowers = this.gatherAllFollowers.bind(this);
+    this.callAgain = this.callAgain.bind(this);
     //this.handlePopular = this.handlePopular.bind(this);
   }
   handleClick({target}) {
@@ -27,7 +29,7 @@ class App extends Component {
       return {
         result: '',
       contributions: '',
-      followers: '',
+      followers: [],
       events: '',
       issues: '',
       list: [],
@@ -51,19 +53,18 @@ class App extends Component {
       })
     }.bind(this))
 
-    fetchFollowers(target.value)
-    .then(function(followers){
-      var that = this;
-      followers.map(function(person){
-        that.handleFollower(person.login)
-      });
-      this.setState(function(){
-        return {
-          followers: followers
-        }
-      })
-    }.bind(this))
-
+   // fetchFollowers(target.value)
+   //  .then(function(followers){
+   //    var that = this;
+   //    followers.map(function(person){
+   //      that.handleFollower(person.login)
+   //    });
+   //    this.setState(function(){
+   //      return {
+   //        followers: followers
+   //      }
+   //    })
+   //  }.bind(this))
     getEvents(target.value)
     .then(function(events){
       this.setState(function(){
@@ -82,6 +83,65 @@ class App extends Component {
         }
       })
     }.bind(this))
+    this.callAgain(target.value, 1);
+  }
+  callAgain (value, num) {
+    console.log('call again ran for', num)
+    var that = this;
+
+    fetchFollowers(value, num)
+    .then(function(followers){
+      console.log('stacked resposne', followers)
+      var arr1 = followers.headers.link.split(' ')[followers.headers.link.split(' ').indexOf('rel="last"') - 1];
+        var arr2 = followers.headers.link.split(' ')[followers.headers.link.split(' ').indexOf('rel="last",') - 1];
+      if(arr1 || arr2){
+        var arr;
+        if(arr1 === undefined) {
+          arr = arr2
+        } else {
+          arr = arr1;
+        }
+        console.log(followers.headers.link.split(' '))
+        console.log('hhhhh', arr)
+        var index = arr.indexOf('&page=');
+        var finalPage = arr.toString().slice(index + 6, index + 8);
+        if(num == finalPage){
+          that.gatherAllFollowers();
+          return;
+        } else {
+          console.log('num:' + num + ' final:' + finalPage)
+ var final = this.state.followers.concat(followers.data);
+      this.setState(function(){
+        return {
+          followers: final
+        }
+      })
+
+          this.callAgain(value, num + 1);
+        }
+      } else {
+        console.log('only 1 page...');
+        console.log(that)
+         var final = this.state.followers.concat(followers.data);
+      this.setState(function(){
+        return {
+          followers: final
+        }
+      })
+      this.gatherAllFollowers();
+      }
+
+
+    }.bind(this))
+    }
+
+
+
+  gatherAllFollowers() {
+      var that = this;
+      this.state.followers.map(function(person){
+        that.handleFollower(person.login)
+      });
   }
   handleFollower (person) {
     getProfile(person)
