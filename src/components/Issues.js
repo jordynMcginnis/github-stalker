@@ -35,9 +35,9 @@ class Issues extends Component {
        <YAxis/>
        <Tooltip/>
        <Legend />
-       <Bar dataKey="issues" fill="red" />
+       <Bar dataKey="issues" fill="#00df6e" />
       </BarChart>
-      This qualifier finds issues and pull requests that were either created by a certain user, assigned to that user, mention that user, or were commented on by that user.
+      <span className='stats'> Github Issues - </span> Finds issues and pull requests that were either created by a certain user, assigned to that user, mention that user, or were commented on by that user.
       </div>
 
     );

@@ -153,14 +153,18 @@
   display: flex;
   justify-content: center;
 }
+
+.fan-info {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
 .fan-name {
   display: flex;
   justify-content: center;
   font-size: 2vmax;
   color: black;
-  background-image: url('./photos/kiss.png');
-  background-size: contain;
-  background-repeat: no-repeat;
+
 }
 .f-result {
   display: flex;
@@ -169,7 +173,7 @@
   height: 60px;
   border-top-width: 1px;
   border-top-style: solid;
-  border-top-color: #dbdbdb;
+  border-top-color: #b8e986;
 }
 
 .Main {
@@ -238,8 +242,9 @@
 }
 .popularFollower {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+
+
+  flex-wrap: wrap;
 }
 .most-pop {
   margin-bottom: 20px;

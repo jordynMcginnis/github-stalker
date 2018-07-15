@@ -219,7 +219,10 @@ class Followers extends Component {
   return count;
 }
   render() {
+    var namee = this.props.person;
+    var noPerson = this.props.list.filter(function(item){return item.login !== namee})
     var person = this.props.list.sort(function(a, b){ return b.followers - a.followers})[0];
+    var person2 = this.props.list.sort(function(a, b){ return b.followers - a.followers})[1];
     return (
       <div className='Followers'>
         <span className='stats'>Followers Stats - </span> Results based upon users who specify location within the USA.
@@ -233,7 +236,8 @@ class Followers extends Component {
           <USAMap customize={this.stateConversion(this.props.list) } width='100%'/>
         </div>
         <div className='popularFollower'>
-          <div className='most-pop'> <span className='stats'>Most popular follower - </span>Results based on github user who has the most followers that is following user. </div>
+          <div className='most-pop'> <span className='stats'>Most popular followers - </span>Results based on github user who has the most followers that is following user. </div>
+          {person !== undefined ?
           <Bio
                 name= {person.name}
                 userName={person.login}
@@ -243,6 +247,20 @@ class Followers extends Component {
                 repos={person.public_repos}
                 photo={person.avatar_url}
               />
+              : null
+            }
+            {person2 !== undefined ?
+            <Bio
+                name= {person2.name}
+                userName={person2.login}
+                summary={person2.bio}
+                joined={person2.created_at}
+                location={person2.location}
+                repos={person2.public_repos}
+                photo={person2.avatar_url}
+              />
+              : null
+}
         </div>
       </div>
     );

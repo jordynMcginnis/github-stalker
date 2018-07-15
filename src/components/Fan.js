@@ -31,7 +31,7 @@ class Fan extends Component {
     return (
       <div className='Contributions'>
         <p className='fan-name'>  {name === '' ? 'No Stalker' : name} </p>
-        <div> <span className='stats'> Github Stalker - </span> Results based on recent activity from users associated with {this.props.person}'s account.</div>
+        <div className='fan-info'> <span className='stats'> Github Stalker - </span>  Results based on recent activity from users associated with {this.props.person}'s account.</div>
         <div className='fan-results'>
 
           {personEvent.map(function(item){

@@ -23,6 +23,16 @@ class App extends Component {
     //this.handlePopular = this.handlePopular.bind(this);
   }
   handleClick({target}) {
+    this.setState(function(){
+      return {
+        result: '',
+      contributions: '',
+      followers: '',
+      events: '',
+      issues: '',
+      list: [],
+      }
+    });
     getProfile(target.value)
     .then(function(repos){
       this.setState(function(){
