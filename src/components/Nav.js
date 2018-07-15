@@ -9,7 +9,7 @@ class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      render: 'Contributions'
+      render: 'Followers'
     }
     this.handleClick = this.handleClick.bind(this);
   }

@@ -6,7 +6,7 @@ class Search extends Component {
     return (
       <div className="search">
         <GoMarkGithub className='github-icon'/>
-        <input className='search-input' placeholder='Enter username...' onKeyPress={(e) => e.key === 'Enter' ? this.props.handleClick(e) : null}/>
+        <input className='search-input' placeholder='Enter username... like jordynMcginnis' onKeyPress={(e) => e.key === 'Enter' ? this.props.handleClick(e) : null}/>
       </div>
     );
   }

@@ -6,6 +6,7 @@ import Nav from './components/Nav.js';
 import GoStar from 'react-icons/lib/go/star';
 import {getProfile, getContributions, getFollowers, getEvents, getIssues, fetchFollowers} from './utils/api.js';
 import Main from './components/Main.js';
+import Loading from './components/Loading.js';
 
 class App extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class App extends Component {
       events: '',
       issues: '',
       list: [],
+      render: 'main'
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleFollower = this.handleFollower.bind(this);
@@ -33,6 +35,7 @@ class App extends Component {
       events: '',
       issues: '',
       list: [],
+      render: 'loading'
       }
     });
     getProfile(target.value)
@@ -86,14 +89,17 @@ class App extends Component {
     this.callAgain(target.value, 1);
   }
   callAgain (value, num) {
-    console.log('call again ran for', num)
     var that = this;
-
+    var results = [];
     fetchFollowers(value, num)
     .then(function(followers){
-      console.log('stacked resposne', followers)
-      var arr1 = followers.headers.link.split(' ')[followers.headers.link.split(' ').indexOf('rel="last"') - 1];
+      if(followers.headers.link){
+        var arr1 = followers.headers.link.split(' ')[followers.headers.link.split(' ').indexOf('rel="last"') - 1];
         var arr2 = followers.headers.link.split(' ')[followers.headers.link.split(' ').indexOf('rel="last",') - 1];
+      } else {
+        console.log('booo')
+      }
+
       if(arr1 || arr2){
         var arr;
         if(arr1 === undefined) {
@@ -101,66 +107,99 @@ class App extends Component {
         } else {
           arr = arr1;
         }
-        console.log(followers.headers.link.split(' '))
-        console.log('hhhhh', arr)
         var index = arr.indexOf('&page=');
         var finalPage = arr.toString().slice(index + 6, index + 8);
         if(num == finalPage){
           that.gatherAllFollowers();
           return;
         } else {
-          console.log('num:' + num + ' final:' + finalPage)
- var final = this.state.followers.concat(followers.data);
-      this.setState(function(){
-        return {
-          followers: final
-        }
-      })
 
-          this.callAgain(value, num + 1);
-        }
-      } else {
-        console.log('only 1 page...');
-        console.log(that)
-         var final = this.state.followers.concat(followers.data);
-      this.setState(function(){
-        return {
-          followers: final
-        }
-      })
-      this.gatherAllFollowers();
-      }
+         var final = results.concat(followers.data);
+              results = final;
+
+                  this.callAgain(value, num + 1);
+                }
+              } else {
+                 var final = results.concat(followers.data);
+              this.setState(function(){
+                return {
+                  followers: final
+                }
+              })
+              this.gatherAllFollowers();
+              }
 
 
-    }.bind(this))
+            }.bind(this))
     }
 
 
 
   gatherAllFollowers() {
       var that = this;
-      this.state.followers.map(function(person){
-        that.handleFollower(person.login)
-      });
+      // this.state.followers.map(function(person){
+      //   that.handleFollower(person.login)
+      // });
+      this.handleFollower();
   }
-  handleFollower (person) {
-    getProfile(person)
+  handleFollower () {
+
+
+
+
+    var that = this;
+    var results = [];
+
+// that.state.result.followers
+    this.state.followers.map(function(person){
+    console.log(person.login)
+    getProfile(person.login)
     .then(function(repos){
-      var final = this.state.list.concat(repos);
-      this.setState(function(){
-        return {
-          list: final
-        }
-      })
-    }.bind(this))
-  }
+      var final = results.concat(repos);
+      if(final.length === that.state.result.followers){
+        that.setState(function() {
+          return {
+            list: final,
+            render: 'result'
+          }
+        }.bind(that))
+
+      } else {
+
+        results = final;
+      }
+    })
+
+    })
+      }
+
+
+  // var final = this.state.list.concat(repos);
+  //     if(this.state.result.followers === final.length-1){
+  //       this.setState(function(){
+  //         return {
+  //           list: final,
+  //           render: 'result'
+
+  //         }.bind(this))
+  //       } else {
+  //         this.setState(function(){
+  //         return {
+  //           list: final,
+
+  //         }.bind(this))
+  //       }
+  //     }
+
+
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <Search handleClick={this.handleClick}/>
         </header>
-        {this.state.result !== ''
+        {this.state.render === 'result'
           ? <div className="App-intro">
               <Bio
                 name= {this.state.result.name}
@@ -173,9 +212,16 @@ class App extends Component {
               />
               <Nav contributions={this.state.contributions} followers={this.state.followers} list={this.state.list} events={this.state.events} fan={this.state.events} person={this.state.person} issues={this.state.issues}/>
             </div>
-          : <Main/>
+            : null
         }
-
+        {this.state.render === 'main'
+          ? <Main/>
+          : null
+        }
+        {this.state.render === 'loading'
+          ? <Loading/>
+          : null
+        }
       </div>
     );
   }
