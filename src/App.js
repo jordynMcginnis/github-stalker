@@ -143,10 +143,6 @@ class App extends Component {
       this.handleFollower();
   }
   handleFollower () {
-
-
-
-
     var that = this;
     var results = [];
 
@@ -154,43 +150,23 @@ class App extends Component {
     this.state.followers.map(function(person){
     console.log(person.login)
     getProfile(person.login)
-    .then(function(repos){
-      var final = results.concat(repos);
-      if(final.length === that.state.result.followers){
-        that.setState(function() {
-          return {
-            list: final,
-            render: 'result'
-          }
-        }.bind(that))
+      .then(function(repos){
+        var final = results.concat(repos);
+        if(final.length === that.state.result.followers){
+          that.setState(function() {
+            return {
+              list: final,
+              render: 'result'
+            }
+          }.bind(that))
 
-      } else {
+        } else {
 
-        results = final;
-      }
+          results = final;
+        }
+      })
     })
-
-    })
-      }
-
-
-  // var final = this.state.list.concat(repos);
-  //     if(this.state.result.followers === final.length-1){
-  //       this.setState(function(){
-  //         return {
-  //           list: final,
-  //           render: 'result'
-
-  //         }.bind(this))
-  //       } else {
-  //         this.setState(function(){
-  //         return {
-  //           list: final,
-
-  //         }.bind(this))
-  //       }
-  //     }
-
+  }
 
 
   render() {
