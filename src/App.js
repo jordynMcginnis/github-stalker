@@ -126,27 +126,15 @@ class App extends Component {
                   followers: final
                 }
               })
-              this.gatherAllFollowers();
+              this.handleFollower();
               }
 
 
             }.bind(this))
     }
-
-
-
-  gatherAllFollowers() {
-      var that = this;
-      // this.state.followers.map(function(person){
-      //   that.handleFollower(person.login)
-      // });
-      this.handleFollower();
-  }
   handleFollower () {
     var that = this;
     var results = [];
-
-// that.state.result.followers
     this.state.followers.map(function(person){
     console.log(person.login)
     getProfile(person.login)
