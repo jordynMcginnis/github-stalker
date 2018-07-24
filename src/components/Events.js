@@ -23,7 +23,7 @@ class Events extends Component {
         }, {}));
     return (
       <div className='Events'>
-        <p> Events from Users from  {order[order.length - 1].created_at.slice(0,10)} to {order[0].created_at.slice(0,10)} </p>
+        <p> Events from Users from  {order[order.length - 1].created_at.slice(5,7)}/{order[order.length - 1].created_at.slice(8,10)}/{order[order.length - 1].created_at.slice(0,4)} to  {order[0].created_at.slice(5,7)}/{order[0].created_at.slice(8,10)}/{order[0].created_at.slice(0,4)}</p>
         {results.map(function(item, index){
           return <div className= 'f-result'> {item} : {other[index]} </div>
         })}

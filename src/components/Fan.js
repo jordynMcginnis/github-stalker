@@ -35,7 +35,7 @@ class Fan extends Component {
         <div className='fan-results'>
 
           {personEvent.map(function(item){
-            return <div className='f-result'> <span> {item.type}: </span>  {item.repo.name}<span> {item.created_at.slice(0,10)}</span> </div>
+            return <div className='f-result'> <span> {item.type}: </span>  {item.repo.name}<span>  {item.created_at.slice(5,7)}/{item.created_at.slice(8,10)}/{item.created_at.slice(0,4)}</span> </div>
           })}
         </div>
       </div>
