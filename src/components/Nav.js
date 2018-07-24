@@ -33,10 +33,6 @@ class Nav extends Component {
           {this.state.render === 'Fan' ? <Fan events={this.props.events} person={this.props.person} list={this.props.list}/> : null}
           {this.state.render === 'Issues' ? <Issues issues={this.props.issues}/> : null}
         </div>
-        <div className='tweet'>
-          <button> Download </button>
-          <button>Tweet </button>
-        </div>
       </div>
     );
   }

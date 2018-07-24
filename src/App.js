@@ -22,7 +22,7 @@ class App extends Component {
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleFollower = this.handleFollower.bind(this);
-    this.gatherAllFollowers = this.gatherAllFollowers.bind(this);
+    //this.gatherAllFollowers = this.gatherAllFollowers.bind(this);
     this.callAgain = this.callAgain.bind(this);
     //this.handlePopular = this.handlePopular.bind(this);
   }
@@ -88,9 +88,10 @@ class App extends Component {
     }.bind(this))
     this.callAgain(target.value, 1);
   }
-  callAgain (value, num) {
+
+  callAgain (value, num, results) {
     var that = this;
-    var results = [];
+    var results = results || [];
     fetchFollowers(value, num)
     .then(function(followers){
       if(followers.headers.link){
@@ -98,9 +99,11 @@ class App extends Component {
         var arr2 = followers.headers.link.split(' ')[followers.headers.link.split(' ').indexOf('rel="last",') - 1];
       } else {
         console.log('booo')
+
       }
 
       if(arr1 || arr2){
+        //console.log('exists')
         var arr;
         if(arr1 === undefined) {
           arr = arr2
@@ -109,34 +112,43 @@ class App extends Component {
         }
         var index = arr.indexOf('&page=');
         var finalPage = arr.toString().slice(index + 6, index + 8);
-        if(num == finalPage){
-          that.gatherAllFollowers();
+        console.log('num', num);
+        console.log('finalp', finalPage);
+        if(num >= Number.parseInt(finalPage)){
+          console.log('weird thing runns here')
+          console.log(results.length)
+          //that.gatherAllFollowers();
+
           return;
         } else {
+            var final = results.concat(followers.data);
+            //results = final;
+            //console.log('got here')
 
-         var final = results.concat(followers.data);
-              results = final;
+            this.callAgain(value, num + 1, final);
+          }
 
-                  this.callAgain(value, num + 1);
-                }
-              } else {
-                 var final = results.concat(followers.data);
+      } else {
+              var final = results.concat(followers.data);
               this.setState(function(){
                 return {
                   followers: final
                 }
               })
-              this.handleFollower();
+              console.log('SHOULD ONLY RUN ONCE GIRL')
+              this.handleFollower();//this should only be called once ever....
+              return;
               }
 
 
-            }.bind(this))
+      }.bind(this))
     }
+
+
   handleFollower () {
     var that = this;
     var results = [];
     this.state.followers.map(function(person){
-    console.log(person.login)
     getProfile(person.login)
       .then(function(repos){
         var final = results.concat(repos);
@@ -149,11 +161,25 @@ class App extends Component {
           }.bind(that))
 
         } else {
-
           results = final;
         }
       })
     })
+
+    // this.state.followers.map(function(person){
+    // getProfile(person.login)
+    //   .then(function(repos){
+    //     var results = results.concat(repos);
+    //   })
+    // })
+    // console.log('results', results)
+    //  that.setState(function() {
+    //         return {
+    //           list: results,
+    //           render: 'result'
+    //         }
+    //       }.bind(that))
+
   }
 
 

@@ -2,112 +2,19 @@ import React, { Component } from 'react';
 import USAMap from "react-usa-map";
 import Bio from './Bio.js';
 class Followers extends Component {
-
-
-  statesCustomConfig = (list) => {
-    var total = 0;
-    var filtered = list.filter(function (item) {
-      return item.location !== null;
-    })
-    var something = filtered.reduce(function(result, item){
-      if(item !== null & result[item.location.split(' ')[1]]){
-        result[item.location.split(' ')[1]] += 1;
-      } else if(item !== null){
-        result[item.location.split(' ')[1]] = 1;
-      }
-      return result;
-    },{});
-    const guide = {
-      more: '#f7dbf0',
-      middle: '#adc4e5',
-      low: '#e5e5ff',
-      none: '#f7dbf0'
+  constructor(props) {
+    super(props);
+    this.state = {
+      render: 'load'
     }
-    // var poop = {'NY': 1, 'UT': 60};
-    // something = poop;
-    var other = {};
-    console.log('here', something)
-    for(var key in something){
-      var color = guide.none;
-      if (something[key] >= 3){
-        console.log('is more')
-        color = guide.more;
-      }
-      else if (something[key] >= 2){
-        color = guide.middle;
-      }
-      else if(something[key] >= 1){
-        console.log('color ran')
-        color = guide.low;
-      }
-
-
-      if(key === 'Utah' || key === 'UT'){
-
-        other.UT = { fill: color}
-      }
-      if(key === 'California' || key === 'CA' || key === 'Francisco'|| key === 'diego'){
-        color += 1;
-        other.CA = { fill: color}
-      }
-      if(key === 'New Jersey'){
-        other.NJ = { fill: color}
-      }
-      if(key === 'New York' || key === 'NY'){
-        other.NY = { fill: color}
-      }
-      if(key === 'Florida' || key === 'FL' ){
-        other.FL = { fill: color}
-      }
-      if(key === 'Washington' || key === 'WA'){
-        other.WA = { fill: color}
-      }
-      if(key === 'Texas' || key === 'TX'){
-        other.TX = { fill: color}
-      }
-      if(key === 'Colorado' || key === 'CO'){
-        other.CO = { fill: color}
-      }
-      if(key === 'Kansas' || key === 'KS'){
-        other.KS = { fill: color}
-      }
-      if(key === 'Alabama' || key === 'AL'){
-         other.AL = { fill: color}
-      }
-      if(key === 'Tennesse' || key === 'TN'){
-        other.TN = { fill: color}
-      }
-      if(key === 'Oregon'|| key === 'OR'){
-        other.OR = { fill: color}
-      }
-      if(key === 'Nevada' || key === 'NV'){
-        other.NV = { fill: color}
-      }
-      if(key === 'Alaska' || key === 'AK'){
-        other.AK = { fill: color}
-      }
-      if(key === 'Maine' || key === 'MN'){
-        other.MN = { fill: color}
-      } else {
-        total += 1;
-      }
-    }
-    console.log('other', other)
-    console.log('outside of united states: ', total);
-    return other;
-
-    // {
-    //   "NJ": {
-    //     fill: "navy",
-    //     clickHandler: (event) => console.log('Custom handler for NJ', event.target.dataset)
-    //   },
-    //   "NY": {
-    //     fill: "#CC0000"
-    //   }
-    // };
-  };
+    this.stateConversion = this.stateConversion.bind(this);
+  }
+  componentDidMount() {
+    this.stateConversion(this.props.list);
+  }
 
   stateConversion = (lists) => {
+    console.log('this ran bitch')
     var sheet = {
       "AL": "Alabama",
       "AK": "Alaska",
@@ -175,18 +82,11 @@ class Followers extends Component {
     var map = filtered.map(function(item){
       return item.location;
     });
-    console.log('arr', map)
-    var count = {
-
-    }
+    var count = {};
     for(var i = 0; i < map.length; i++){
       var place = map[i];
-      //console.log(place)
       for(var key in sheet){
-        //console.log(sheet[key])
-        console.log(place.split(' ').indexOf(sheet[key]))
         if(place.split(' ').indexOf(key) > 0 || place.split(' ').indexOf(sheet[key]) > 0){
-          //console.log(true)
           if(count[key]){
             count[key] += 1;
           } else {
@@ -195,27 +95,56 @@ class Followers extends Component {
         }
       }
     }
-    console.log('count final:', count);
+    var sorted = [];
+    for(var key in count){
+      var final = {};
+      final.state = key;
+      final.count = count[key];
+      sorted.push(final)
+    }
+    var fullySorted = sorted.sort(function(a,b){
+      return b.count - a.count;
+    });
+    var valueInString = fullySorted.length - 1;
+    var num = parseFloat(valueInString);
+    var top10 = Math.ceil(num - (num * .10));
+    var top30 = Math.ceil(num - (num * .30));
+    var top50 = Math.ceil(num - (num * .60));
+    var top99 = Math.ceil(num - (num * .99));
+    console.log('top30', top30)
     const guide = {
+      most: '#006728',
       more: '#00a43c',
       middle: '#59d36e',
       low: '#bbec88',
       none: '#f7dbf0'
     }
+    var highest = fullySorted[0]['count'];
+    var middle = fullySorted[Math.round(fullySorted.length/2)]['count'];
+    var low = fullySorted[fullySorted.length - 1]['count'];
 
     for(var key in count){
       var color = guide.none;
-      if (count[key] >= 3){
+      if(count[key] >= top10){
+        count[key] = {fill: guide.most}
+      }
+      if (count[key] >= top30){
         count[key] = { fill: guide.more}
       }
-      else if (count[key] >= 2){
+      else if (count[key] >= top50){
         count[key]= { fill : guide.middle}
       }
-      else if(count[key] >= 1){
+      else if(count[key] >= top99){
         count[key]= { fill: guide.low}
       }
-
-  }
+    }
+    console.log('right here', count)
+    this.setState(function(){
+      return {
+        render: 'map',
+        count : count
+      }
+    })
   return count;
 }
   render() {
@@ -228,13 +157,25 @@ class Followers extends Component {
         <span className='stats'>Followers Stats - </span> Results based upon users who specify location within the USA.
         <div className= 'map-guide'>
             <div className='most'> <div></div>More</div>
+            <div className='more'> </div>
             <div className='middle'> </div>
             <div className='least'> </div>
             <div className='none'> Less <div></div></div>
           </div>
-        <div className='map'>
-          <USAMap customize={this.stateConversion(this.props.list) } width='100%'/>
-        </div>
+          {this.state.render === 'map'
+            ?  <div className='map'>
+          <USAMap customize={this.state.count} width='100%'/>
+         </div>
+         : <div>placing all users on map now.. </div>
+          }
+
+        <a class="twitter-share-button"
+        //href="https://twitter.com/intent/tweet?text=Check%20out%20who%20is%20stalking%20you" + "&hashtags=github-stalker&via=jordynbmcginnis"
+          href="https://twitter.com/intent/tweet?text=Check%20out%20who%20is%20stalking%20you&hashtags=github-stalker&via=jordynbmcginnis"
+          data-size="large">
+          Tweet
+        </a>
+
         <div className='popularFollower'>
           <div className='most-pop'> <span className='stats'>Most popular followers - </span>Results based on github user who has the most followers that is following user. </div>
           {person !== undefined ?
@@ -260,7 +201,7 @@ class Followers extends Component {
                 photo={person2.avatar_url}
               />
               : null
-}
+            }
         </div>
       </div>
     );
