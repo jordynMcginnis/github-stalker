@@ -29,7 +29,7 @@ class App extends Component {
   handleClick({target}) {
     this.setState(function(){
       return {
-        result: '',
+      result: '',
       contributions: '',
       followers: [],
       events: '',
@@ -55,19 +55,6 @@ class App extends Component {
         }
       })
     }.bind(this))
-
-   // fetchFollowers(target.value)
-   //  .then(function(followers){
-   //    var that = this;
-   //    followers.map(function(person){
-   //      that.handleFollower(person.login)
-   //    });
-   //    this.setState(function(){
-   //      return {
-   //        followers: followers
-   //      }
-   //    })
-   //  }.bind(this))
     getEvents(target.value)
     .then(function(events){
       this.setState(function(){
@@ -209,7 +196,7 @@ class App extends Component {
           : null
         }
         {this.state.render === 'loading'
-          ? <Loading/>
+          ? <Loading amount={this.state.result.followers}/>
           : null
         }
       </div>

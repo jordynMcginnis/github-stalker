@@ -107,7 +107,16 @@
   height: 30px;
   margin-top: 10px;
 }
+.twitter-share-button{
+  display: flex;
+  justify-content: flex-end;
+  font-weight: bold;
+  color: green;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  outline: none;
 
+}
 .tweet button {
   color: white;
   background-color: grey;
@@ -262,6 +271,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 6vw;
+
   color: #00af3d;
 }
