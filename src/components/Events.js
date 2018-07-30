@@ -3,19 +3,19 @@ import React, { Component } from 'react';
 class Events extends Component {
   render() {
     let order = this.props.events.sort((a, b) => a.created_at - b.created_at);
-    let results = Object.keys(this.props.events.reduce((result, item) => {
-      if(!result[item.type]){
-        result[item.type] = 1;
+    let results = Object.keys(this.props.events.reduce((result, {type}) => {
+      if(!result[type]){
+        result[type] = 1;
       } else {
-        result[item.type] = result[item.type] + 1;
+        result[type] = result[type] + 1;
       }
       return result;
     }, {}));
-    let other = Object.values(this.props.events.reduce((result, item) => {
-      if(!result[item.type]){
-        result[item.type] = 1;
+    let other = Object.values(this.props.events.reduce((result, {type}) => {
+      if(!result[type]){
+        result[type] = 1;
       } else {
-        result[item.type] = result[item.type] + 1;
+        result[type] = result[type] + 1;
       }
       return result;
     }, {}));
