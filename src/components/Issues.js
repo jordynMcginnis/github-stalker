@@ -3,10 +3,10 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 
 class Issues extends Component {
   render() {
-    const result = this.props.issues.items.reduce(function(result, item){
-      var date = item.created_at.slice(5, 7);
+    const result = this.props.issues.items.reduce((result, item) => {
+      let date = item.created_at.slice(5, 7);
       if(result[date]){
-        result[date] +=1;
+        result[date] += 1;
       } else {
         result[date] = 1;
       }
@@ -25,21 +25,19 @@ class Issues extends Component {
       {name: 'October', issues: result['10']},
       {name: 'November', issues: result['11']},
       {name: 'December', issues: result['12']},
-];
+    ];
     return (
       <div>
-      <BarChart width={800} height={300} data={data}
-        margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-       <CartesianGrid strokeDasharray="2 2"/>
-       <XAxis dataKey="name"/>
-       <YAxis/>
-       <Tooltip/>
-       <Legend />
-       <Bar dataKey="issues" fill="#00df6e" />
-      </BarChart>
-      <span className='stats'> Github Issues - </span> Finds issues and pull requests that were either created by a certain user, assigned to that user, mention that user, or were commented on by that user.
+        <BarChart width={800} height={300} data={data} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+          <CartesianGrid strokeDasharray="2 2"/>
+          <XAxis dataKey="name"/>
+          <YAxis/>
+          <Tooltip/>
+          <Legend />
+          <Bar dataKey="issues" fill="#00df6e" />
+        </BarChart>
+        <span className='stats'> Github Issues - </span> Finds issues and pull requests that were either created by a certain user, assigned to that user, mention that user, or were commented on by that user.
       </div>
-
     );
   }
 }
