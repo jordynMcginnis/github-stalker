@@ -10,14 +10,12 @@ module.exports = {
   getProfile: function (username) {
     return axios.get('https://api.github.com/users/' + username + '?' + params)
     .then(function(user){
-      //console.log('profile', user.data);
       return user.data;
     });
   },
   getContributions: function (username) {
     return axios.get('https://api.github.com/search/commits?q=repo:octocat/Spoon-Knife+css'+ params, header )
     .then(function(user){
-      //console.log('here', user.data);
       return user.data
     });
   },
@@ -43,24 +41,20 @@ module.exports = {
     // });
   },
   fetchFollowers: function (username, num) {
-    //location:utah
-    return axios.get('https://api.github.com/users/' + username + '/followers'+ '?per_page=100&page='+num +'&' + params, header )
+    return axios.get('https://api.github.com/users/' + username + '/followers?per_page=100&page='+num +'&' + params, header )
     .then(function(user){
-      console.log('here are the headers:' + num, user.headers);
       return user
     });
   },
   getEvents: function (username) {
-    return axios.get('https://api.github.com/users/' + username + '/received_events/public'+ '?' + params, header )
+    return axios.get('https://api.github.com/users/' + username + '/received_events/public?' + params, header )
     .then(function(user){
-      //console.log('here', user.data);
       return user.data
     });
   },
     getIssues: function (username) {
     return axios.get('https://api.github.com/search/issues?q=involves:' + username +' created:>=2018-01-01', header + '?' + params)
     .then(function(user){
-      //console.log('here', user.data);
       return user.data
     });
   },
