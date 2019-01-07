@@ -78,13 +78,17 @@ class Followers extends Component {
       "WI": "Wisconsin",
       "WY": "Wyoming"
     };
+
     var filtered = lists.filter(function (item) {
       return item.location !== null;
     });
+
     var map = filtered.map(function(item){
       return item.location;
     });
+
     var count = {};
+
     for(var i = 0; i < map.length; i++){
       var place = map[i];
       for(var key in sheet){
@@ -109,12 +113,14 @@ class Followers extends Component {
     var fullySorted = sorted.sort(function(a,b){
       return b.count - a.count;
     });
+
     var valueInString = fullySorted.length - 1;
     var num = parseFloat(valueInString);
     var top10 = Math.ceil(num - (num * .10));
     var top30 = Math.ceil(num - (num * .30));
     var top50 = Math.ceil(num - (num * .60));
     var top99 = Math.ceil(num - (num * .99));
+
     var guide = {
       most: '#006728',
       more: '#00a43c',
