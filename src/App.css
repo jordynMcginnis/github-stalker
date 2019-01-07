@@ -24,6 +24,13 @@
   max-width: 1000px;
 }
 
+.us-state-map {
+  width: 50vw;
+  height: 50vh;
+  max-width: 700px;
+  max-height: 350px;
+}
+
 .github-icon {
   font-size: 30px;
   padding: 10px;
@@ -47,6 +54,8 @@
   max-width: 300px;
   color: #999999;
   font-size: 1vmax;
+
+  padding: 1px;
 }
 
 .Bio h1 {
@@ -60,6 +69,9 @@
   background-position: center;
   height: 50%;
   width: 70%;
+}
+.Bio p {
+  overflow: hidden;
 }
 
 .Nav {
@@ -260,17 +272,25 @@
 .popularFollower {
   display: flex;
   justify-content: center;
-
   flex-wrap: wrap;
 }
+
 .most-pop {
   margin-bottom: 20px;
 }
-
+.top{
+  width: 100%;
+  display: flex;
+   justify-content: center;
+  flex-wrap: wrap;
+}
 .Loading {
   display: flex;
   justify-content: center;
   align-items: center;
 
   color: #00af3d;
+}
+.sum {
+  width: 90%;
 }
