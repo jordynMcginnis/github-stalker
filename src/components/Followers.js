@@ -13,8 +13,8 @@ class Followers extends Component {
     this.stateConversion(this.props.list);
   }
 
-  stateConversion = (lists) => {
-    console.log('this ran bitch')
+  stateConversion(lists) {
+
     var sheet = {
       "AL": "Alabama",
       "AK": "Alaska",
@@ -96,7 +96,7 @@ class Followers extends Component {
       }
     }
     var sorted = [];
-    for(var key in count){
+    for(key in count){
       var final = {};
       final.state = key;
       final.count = count[key];
@@ -111,7 +111,6 @@ class Followers extends Component {
     var top30 = Math.ceil(num - (num * .30));
     var top50 = Math.ceil(num - (num * .60));
     var top99 = Math.ceil(num - (num * .99));
-    console.log('top30', top30)
     const guide = {
       most: '#006728',
       more: '#00a43c',
@@ -119,12 +118,12 @@ class Followers extends Component {
       low: '#bbec88',
       none: '#f7dbf0'
     }
-    var highest = fullySorted[0]['count'];
-    var middle = fullySorted[Math.round(fullySorted.length/2)]['count'];
-    var low = fullySorted[fullySorted.length - 1]['count'];
+    // var highest = fullySorted[0]['count'];
+    // var middle = fullySorted[Math.round(fullySorted.length/2)]['count'];
+    // var low = fullySorted[fullySorted.length - 1]['count'];
 
-    for(var key in count){
-      var color = guide.none;
+    for(key in count){
+      //var color = guide.none;
       if(count[key] >= top10){
         count[key] = {fill: guide.most}
       }
@@ -138,7 +137,6 @@ class Followers extends Component {
         count[key]= { fill: guide.low}
       }
     }
-    console.log('right here', count)
     this.setState(function(){
       return {
         render: 'map',
@@ -148,8 +146,8 @@ class Followers extends Component {
   return count;
 }
   render() {
-    var namee = this.props.person;
-    var noPerson = this.props.list.filter(function(item){return item.login !== namee})
+    //var namee = this.props.person;
+    //var noPerson = this.props.list.filter(function(item){return item.login !== namee})
     var person = this.props.list.sort(function(a, b){ return b.followers - a.followers})[0];
     var person2 = this.props.list.sort(function(a, b){ return b.followers - a.followers})[1];
     return (
@@ -164,12 +162,12 @@ class Followers extends Component {
           </div>
           {this.state.render === 'map'
             ?  <div className='map'>
-          <USAMap customize={this.state.count} width='100%'/>
+          <USAMap customize={this.state.count}/>
          </div>
          : <div>placing all users on map now.. </div>
           }
 
-        <a class="twitter-share-button"
+        <a className="twitter-share-button"
         //href="https://twitter.com/intent/tweet?text=Check%20out%20who%20is%20stalking%20you" + "&hashtags=github-stalker&via=jordynbmcginnis"
           href="https://twitter.com/intent/tweet?text=Check%20out%20this%20cool%20map%20that%20shows%20your%20github%20users%20locations!&hashtags=github-stalker&via=jordynbmcginnis"
           data-size="large">
@@ -178,8 +176,9 @@ class Followers extends Component {
 
         <div className='popularFollower'>
           <div className='most-pop'> <span className='stats'>Most popular followers - </span>Results based on github user who has the most followers that is following user. </div>
-          {person !== undefined ?
-          <Bio
+          <div className='top'>
+            {person !== undefined ?
+              <Bio
                 name= {person.name}
                 userName={person.login}
                 summary={person.bio}
@@ -191,7 +190,7 @@ class Followers extends Component {
               : null
             }
             {person2 !== undefined ?
-            <Bio
+              <Bio
                 name= {person2.name}
                 userName={person2.login}
                 summary={person2.bio}
@@ -202,6 +201,7 @@ class Followers extends Component {
               />
               : null
             }
+          </div>
         </div>
       </div>
     );
