@@ -11,11 +11,11 @@ class Search extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleKey ({target}) {
-    let value = target.value;
+    const value = target.value;
     this.setState(({value}));
   }
   handleSubmit () {
-    this.props.handleClick(this.state.value)
+    this.props.handleClick(this.state.value);
   }
   render() {
     return (
