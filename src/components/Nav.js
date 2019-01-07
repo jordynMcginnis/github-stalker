@@ -19,10 +19,10 @@ class Nav extends Component {
     return (
       <div className="Nav">
         <div className='Nav-bar'>
-          <div onClick = {(e) => this.handleClick(e, 'Followers')}> Followers</div>
-          <div onClick = {(e) => this.handleClick(e, 'Events')}> Events</div>
-          <div onClick = {(e) => this.handleClick(e, 'Fan')}> Stalker</div>
-          <div onClick = {(e) => this.handleClick(e, 'Issues')}> Issues</div>
+          <div onClick = {(e) => this.handleClick(e, 'Followers')}>Followers</div>
+          <div onClick = {(e) => this.handleClick(e, 'Events')}>Events</div>
+          <div onClick = {(e) => this.handleClick(e, 'Fan')}>Stalker</div>
+          <div onClick = {(e) => this.handleClick(e, 'Issues')}>Issues</div>
         </div>
         <div className='results'>
           {this.state.render === 'Followers' ? <Followers contributions={this.props.followers} list={this.props.list} person={this.props.person}/> : null}
