@@ -17,7 +17,7 @@ class Followers extends Component {
   }
 
   stateConversion(lists) {
-    var sheet = {
+    const sheet = {
       "AL": "Alabama",
       "AK": "Alaska",
       "AS": "American Samoa",
@@ -79,18 +79,18 @@ class Followers extends Component {
       "WY": "Wyoming"
     };
 
-    var filtered = lists.filter(function (item) {
+    const filtered = lists.filter(function (item) {
       return item.location !== null;
     });
 
-    var map = filtered.map(function(item){
+    const map = filtered.map(function(item){
       return item.location;
     });
 
-    var count = {};
+    let count = {};
 
     for(var i = 0; i < map.length; i++){
-      var place = map[i];
+      let place = map[i];
       for(var key in sheet){
         if(place.split(' ').indexOf(key) > 0 || place.split(' ').indexOf(sheet[key]) > 0){
           if(count[key]){
@@ -101,27 +101,28 @@ class Followers extends Component {
         }
       }
     }
-    var sorted = [];
+
+    let sorted = [];
 
     for(key in count){
-      var final = {};
+      let final = {};
       final.state = key;
       final.count = count[key];
       sorted.push(final)
     }
 
-    var fullySorted = sorted.sort(function(a,b){
+    let fullySorted = sorted.sort(function(a,b){
       return b.count - a.count;
     });
 
-    var valueInString = fullySorted.length - 1;
-    var num = parseFloat(valueInString);
-    var top10 = Math.ceil(num - (num * .10));
-    var top30 = Math.ceil(num - (num * .30));
-    var top50 = Math.ceil(num - (num * .60));
-    var top99 = Math.ceil(num - (num * .99));
+    let valueInString = fullySorted.length - 1;
+    let num = parseFloat(valueInString);
+    const top10 = Math.ceil(num - (num * .10));
+    const top30 = Math.ceil(num - (num * .30));
+    const top50 = Math.ceil(num - (num * .60));
+    const top99 = Math.ceil(num - (num * .99));
 
-    var guide = {
+    const guide = {
       most: '#006728',
       more: '#00a43c',
       middle: '#59d36e',
@@ -143,17 +144,19 @@ class Followers extends Component {
         count[key]= { fill: guide.low}
       }
     }
+
     this.setState(function(){
       return {
         render: 'map',
         count : count
       }
     })
+
   return count;
 }
   render() {
-    var person = this.props.list.sort(function(a, b){ return b.followers - a.followers})[0];
-    var person2 = this.props.list.sort(function(a, b){ return b.followers - a.followers})[1];
+    let person = this.props.list.sort(function(a, b){ return b.followers - a.followers})[0];
+    let person2 = this.props.list.sort(function(a, b){ return b.followers - a.followers})[1];
     return (
       <div className='Followers'>
         <span className='stats'>Followers Stats - </span> Results based upon users who specify location within the USA.
