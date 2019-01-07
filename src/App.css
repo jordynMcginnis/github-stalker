@@ -18,10 +18,10 @@
   margin: 0 auto;
   margin-top: 10px;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 80vw;
   min-width: 310px;
-  max-width: 1000px;
 }
 
 .us-state-map {
@@ -29,6 +29,7 @@
   height: 50vh;
   max-width: 700px;
   max-height: 350px;
+  min-height: 200px;
 }
 
 .github-icon {
@@ -50,17 +51,27 @@
 .Bio {
   width: 20vw;
   height: 70vh;
-  min-width: 105px;
-  max-width: 300px;
+  min-width: 305px;
+  max-width: 400px;
   color: #999999;
   font-size: 1vmax;
-
   padding: 1px;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bio-info {
+  width: 70%;
 }
 
 .Bio h1 {
   font-size: 2vmax;
   color: black;
+  display: flex;
+  justify-content: center;
 }
 
 .bio-photo {
@@ -69,13 +80,17 @@
   background-position: center;
   height: 50%;
   width: 70%;
+  min-height: 200px;
 }
+
 .Bio p {
   overflow: hidden;
+  display: flex;
+  width: 100%;
 }
 
 .Nav {
-  width: 58vw;
+  width: 50vw;
 }
 
 .Nav-bar {
@@ -218,7 +233,6 @@
 }
 .map-guide {
   width: 100%;
-
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-start;
@@ -281,16 +295,32 @@
 .top{
   width: 100%;
   display: flex;
-   justify-content: center;
+  justify-content: center;
   flex-wrap: wrap;
 }
 .Loading {
   display: flex;
   justify-content: center;
   align-items: center;
-
   color: #00af3d;
 }
 .sum {
   width: 90%;
+}
+
+@media screen and (max-width: 444px) {
+  .Bio {
+    height: 330px;
+  }
+  .bio-photo {
+    min-height: 170px;
+  }
+  .Nav {
+    margin-top: 10px;
+    font-size: 10px;
+  }
+  .us-state-map {
+    height: 23vh;
+  }
+
 }
