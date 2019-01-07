@@ -3,8 +3,8 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 
 class Issues extends Component {
   render() {
-    const result = this.props.issues.items.reduce((result, item) => {
-      let date = item.created_at.slice(5, 7);
+    const result = this.props.issues.items.reduce((result, {created_at}) => {
+      let date = created_at.slice(5, 7);
       if(result[date]){
         result[date] += 1;
       } else {
