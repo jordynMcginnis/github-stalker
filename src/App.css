@@ -165,11 +165,9 @@
   display: flex;
   width: 100%;
 }
-
 .Nav {
   width: 50vw;
 }
-
 .Nav-bar {
   height: 50px;
   min-width: 100px;
