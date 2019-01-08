@@ -79,7 +79,7 @@
 
 .h-link {
   text-align: center;
-  font-size: 1.8em;
+  font-size: 1.4em;
   color: #333333;
   margin-bottom: 3px;
   text-decoration: none;
@@ -145,6 +145,8 @@
 
 .t-name {
   margin-bottom: 5px;
+  font-size: 1.7em;
+  color: black;
 }
 
 .follower-bio-photo {
@@ -364,6 +366,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 10%;
 }
 
 .most-pop {
