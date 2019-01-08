@@ -22,6 +22,18 @@
   min-width: 310px;
 }
 
+.recharts-wrapper {
+  width: 50%;
+  height: 50%;
+  max-width: 500px;
+  max-height: 350px;
+  min-height: 200px;
+}
+
+.recharts-surface {
+  width: 100%;
+}
+
 .us-state-map {
   width: 50vw;
   height: 50vh;
