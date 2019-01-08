@@ -343,8 +343,11 @@
 }
 .Loading {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
+  height: 50%;
+  width: 100%;
   color: #00af3d;
 }
 .sum {
