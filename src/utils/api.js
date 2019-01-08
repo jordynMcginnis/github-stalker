@@ -7,7 +7,7 @@ var header =  { 'headers': { 'Accept': 'application/vnd.github.cloak-preview' } 
 
 
 module.exports = {
-  getProfile: function (username) {
+  getProfile: (username) => {
     return axios.get('https://api.github.com/users/' + username + '?' + params)
     .then(function(user){
       return user.data;
