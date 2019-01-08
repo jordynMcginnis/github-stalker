@@ -16,7 +16,7 @@ module.exports = {
       return false;
     })
   },
-  getContributions: function (username) {
+  getContributions: (username) => {
     return axios.get('https://api.github.com/search/commits?q=repo:octocat/Spoon-Knife+css'+ params, header )
     .then(function(user){
       return user.data
@@ -43,13 +43,13 @@ module.exports = {
     //   }
     // });
   },
-  fetchFollowers: function (username, num) {
+  fetchFollowers: (username, num) => {
     return axios.get('https://api.github.com/users/' + username + '/followers?per_page=100&page='+num +'&' + params, header )
     .then(function(user){
       return user
     });
   },
-  getEvents: function (username) {
+  getEvents: (username) => {
     return axios.get('https://api.github.com/users/' + username + '/received_events/public?' + params, header )
     .then(function(user){
       return user.data
