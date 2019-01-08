@@ -1,7 +1,6 @@
 .App {
   width: 100vw;
 }
-
 .App-header {
   background-color: #24292f;
   width: 100vw;
@@ -11,7 +10,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .App-intro {
   margin: 0 auto;
   margin-top: 10px;
@@ -21,7 +19,6 @@
   width: 80vw;
   min-width: 310px;
 }
-
 .recharts-wrapper {
   width: 50%;
   height: 50%;
