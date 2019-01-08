@@ -18,8 +18,8 @@ class App extends Component {
       list: [],
       render: 'main'
     }
-    this.callAgain = this.callAgain.bind(this);
   }
+
   componentDidMount () {
     this.handleClick(this.props.match.params.id);
   }
@@ -79,7 +79,7 @@ class App extends Component {
     this.callAgain(target, 1);
   }
 
-  callAgain (value, num, results = []) {
+  callAgain = (value, num, results = []) => {
     fetchFollowers(value, num)
     .then(function(followers){
       if(followers.headers.link){
