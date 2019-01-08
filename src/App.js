@@ -24,6 +24,9 @@ class App extends Component {
     this.handleFollower = this.handleFollower.bind(this);
     this.callAgain = this.callAgain.bind(this);
   }
+  componentDidMount () {
+    //console.log(props.params.id);
+  }
   handleClick(target) {
     this.setState(function(){
       return {
@@ -139,9 +142,7 @@ class App extends Component {
   render() {
     return (
         <div className="App">
-          <header className="App-header">
-            <Search handleClick={this.handleClick}/>
-          </header>
+
           {this.state.render === 'result'
             ? <div className="App-intro">
                 <Bio
