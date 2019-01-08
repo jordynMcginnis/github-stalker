@@ -55,7 +55,7 @@ module.exports = {
       return user.data
     });
   },
-    getIssues: function (username) {
+    getIssues: (username) => {
     return axios.get('https://api.github.com/search/issues?q=involves:' + username +' created:>=2018-01-01', header + '?' + params)
     .then(function(user){
       return user.data
