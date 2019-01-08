@@ -367,7 +367,6 @@
   height: 20px;
   background-color: #d3d3d3;
 }
-
 .none {
   width: 70px;
   height: 30px;
@@ -378,7 +377,6 @@
   flex-wrap: wrap;
   margin-top: 10%;
 }
-
 .most-pop {
   margin-bottom: 20px;
 }
@@ -397,7 +395,6 @@
 .sum {
   width: 90%;
 }
-
 .search-button{
   color: white;
   background-color: #233;
