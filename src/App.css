@@ -29,11 +29,9 @@
   max-height: 350px;
   min-height: 200px;
 }
-
 .recharts-surface {
   width: 100%;
 }
-
 .us-state-map {
   width: 50vw;
   height: 50vh;
