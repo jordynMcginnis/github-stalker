@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import App from './App.js';
 import Search from './components/search.js';
-import { Link } from 'react-router-dom';
+
 
 class Home extends Component {
   render() {
