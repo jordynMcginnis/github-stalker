@@ -12,8 +12,6 @@ class Home extends Component {
           <header className="App-header">
             <Route path='/' component={Search}/>
           </header>
-
-
           <Route path='/:id' component={App}/>
         </div>
       </Router>
