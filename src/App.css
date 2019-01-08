@@ -132,7 +132,6 @@
   display: flex;
   justify-content: center;
 }
-
 .bio-photo {
   margin: 0 auto;
   background-size: cover;
@@ -142,7 +141,6 @@
   min-height: 300px;
   border-radius: 3px;
 }
-
 .t-name {
   margin-bottom: 5px;
   font-size: 1.7em;
