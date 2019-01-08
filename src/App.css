@@ -209,6 +209,7 @@
   height: 30px;
   margin-top: 10px;
 }
+
 .twitter-share-button{
   display: flex;
   justify-content: flex-end;
@@ -219,6 +220,7 @@
   outline: none;
 
 }
+
 .tweet button {
   color: white;
   background-color: grey;
