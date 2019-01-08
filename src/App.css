@@ -103,19 +103,15 @@
   flex-direction: column;
   align-items: center;
 }
-
 .bio-info {
   width: 70%;
 }
-
 .bio-info h3 {
   margin-top: 5px;
 }
-
 .follower-bio .bio-info h3 {
   margin-top: 0px;
 }
-
 .follower-bio-info h3 {
   margin-top: 0px;
 }
