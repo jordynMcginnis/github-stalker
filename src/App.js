@@ -119,20 +119,18 @@ class App extends Component {
     }
 
   handleFollower () {
-    var that = this;
     var results = [];
-    this.state.followers.forEach(function(person){
+    this.state.followers.forEach((person) => {
     getProfile(person.login)
-      .then(function(repos){
+      .then((repos) => {
         var final = results.concat(repos);
-        if(final.length === that.state.result.followers){
-          that.setState(function() {
+        if(final.length === this.state.result.followers){
+          this.setState(() => {
             return {
               list: final,
               render: 'result'
             }
           })
-
         } else {
           results = final;
         }
