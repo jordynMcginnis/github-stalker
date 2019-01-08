@@ -119,13 +119,11 @@
 .follower-bio-info h3 {
   margin-top: 0px;
 }
-
 .bio-info h1 {
   margin-bottom: 2px;
   display: flex;
   justify-content: center;
 }
-
 .Bio h1 {
   font-size: 2vmax;
   color: black;
