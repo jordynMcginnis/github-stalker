@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import Search from './components/search.js';
 import Bio from './components/Bio.js';
 import Nav from './components/Nav.js';
 import { getProfile, getContributions, getEvents, getIssues, fetchFollowers } from './utils/api.js';
 import Main from './components/Main.js';
 import Loading from './components/Loading.js';
-import { Link } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -26,6 +24,7 @@ class App extends Component {
   }
   componentDidMount () {
     console.log(this.props.match.params.id);
+    this.handleClick(this.props.match.params.id);
   }
   handleClick(target) {
     this.setState(function(){
