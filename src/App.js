@@ -18,8 +18,6 @@ class App extends Component {
       list: [],
       render: 'main'
     }
-    this.handleClick = this.handleClick.bind(this);
-    this.handleFollower = this.handleFollower.bind(this);
     this.callAgain = this.callAgain.bind(this);
   }
   componentDidMount () {
@@ -28,7 +26,7 @@ class App extends Component {
   componentWillReceiveProps () {
     this.handleClick(this.props.match.params.id);
   }
-  handleClick(target) {
+  handleClick = (target) => {
     this.setState(function(){
       return {
       result: '',
@@ -118,7 +116,7 @@ class App extends Component {
       }.bind(this))
     }
 
-  handleFollower () {
+  handleFollower = () =>  {
     var results = [];
     this.state.followers.forEach((person) => {
     getProfile(person.login)
