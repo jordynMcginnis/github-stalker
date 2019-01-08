@@ -140,10 +140,10 @@ class App extends Component {
 
   render() {
     const { name, login, bio, created_at, location, public_repos, avatar_url } = this.state.result;
-    const {contributions, followers, list, events, person, issues} = this.state;
+    const {contributions, followers, list, events, person, issues, render} = this.state;
     return (
         <div className="App">
-          {this.state.render === 'result'
+          {render === 'result'
             ? <div className="App-intro">
                 <Bio
                   name= {name}
@@ -154,15 +154,23 @@ class App extends Component {
                   repos={public_repos}
                   photo={avatar_url}
                 />
-                <Nav contributions={contributions} followers={followers} list={list} events={events} fan={events} person={person} issues={issues}/>
+                <Nav
+                  contributions={contributions}
+                  followers={followers}
+                  list={list}
+                  events={events}
+                  fan={events}
+                  person={person}
+                  issues={issues}
+                />
               </div>
               : null
           }
-          {this.state.render === 'main'
+          {render === 'main'
             ? <Main/>
             : null
           }
-          {this.state.render === 'loading'
+          {render === 'loading'
             ? <Loading amount={this.state.result.followers}/>
             : null
           }
