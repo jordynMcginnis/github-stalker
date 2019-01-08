@@ -6,9 +6,9 @@ class Bio extends Component {
     return (
       <div className="Bio">
         <div className='bio-photo' style={{backgroundImage: "url(" + Background + ")"}}></div>
-        <span><h1>{this.props.name}</h1></span>
+        <span><h1 className='t-name'>{this.props.name}</h1></span>
         <div className='bio-info'>
-          <h3>{this.props.userName}</h3>
+          <h3>@{this.props.userName}</h3>
           <p className='sum'> {this.props.summary} </p>
           <p>Joined Github: {this.props.joined.slice(5,7)}/{this.props.joined.slice(8,10)}/{this.props.joined.slice(0,4)}</p>
           <p>Location: {this.props.location}</p>

@@ -102,6 +102,10 @@
   width: 70%;
 }
 
+.bio-info h3 {
+  margin-top: 5px;
+}
+
 .Bio h1 {
   font-size: 2vmax;
   color: black;
@@ -114,9 +118,13 @@
   background-size: cover;
   background-position: center;
   height: 50%;
-  width: 70%;
-  min-height: 200px;
+  width: 80%;
+  min-height: 300px;
   border-radius: 3px;
+}
+
+.t-name {
+  margin-bottom: 5px;
 }
 
 .follower-bio-photo {
