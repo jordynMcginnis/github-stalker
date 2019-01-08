@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import Search from './components/search.js';
 import Bio from './components/Bio.js';
@@ -137,34 +138,36 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <Search handleClick={this.handleClick}/>
-        </header>
-        {this.state.render === 'result'
-          ? <div className="App-intro">
-              <Bio
-                name= {this.state.result.name}
-                userName={this.state.result.login}
-                summary={this.state.result.bio}
-                joined={this.state.result.created_at}
-                location={this.state.result.location}
-                repos={this.state.result.public_repos}
-                photo={this.state.result.avatar_url}
-              />
-              <Nav contributions={this.state.contributions} followers={this.state.followers} list={this.state.list} events={this.state.events} fan={this.state.events} person={this.state.person} issues={this.state.issues}/>
-            </div>
+      <Router>
+        <div className="App">
+          <header className="App-header">
+            <Search handleClick={this.handleClick}/>
+          </header>
+          {this.state.render === 'result'
+            ? <div className="App-intro">
+                <Bio
+                  name= {this.state.result.name}
+                  userName={this.state.result.login}
+                  summary={this.state.result.bio}
+                  joined={this.state.result.created_at}
+                  location={this.state.result.location}
+                  repos={this.state.result.public_repos}
+                  photo={this.state.result.avatar_url}
+                />
+                <Nav contributions={this.state.contributions} followers={this.state.followers} list={this.state.list} events={this.state.events} fan={this.state.events} person={this.state.person} issues={this.state.issues}/>
+              </div>
+              : null
+          }
+          {this.state.render === 'main'
+            ? <Main/>
             : null
-        }
-        {this.state.render === 'main'
-          ? <Main/>
-          : null
-        }
-        {this.state.render === 'loading'
-          ? <Loading amount={this.state.result.followers}/>
-          : null
-        }
-      </div>
+          }
+          {this.state.render === 'loading'
+            ? <Loading amount={this.state.result.followers}/>
+            : null
+          }
+        </div>
+      </Router>
     );
   }
 }
