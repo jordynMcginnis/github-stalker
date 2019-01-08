@@ -181,7 +181,6 @@
   max-width: 750px;
   color: #8c8f92;
 }
-
 .Nav-bar div {
   display: flex;
   justify-content: center;
@@ -189,7 +188,6 @@
   height: 100%;
   list-style: none;
 }
-
 .Nav-bar div:hover {
   border-bottom-style: solid;
   border-bottom-color: #8c8f92;
