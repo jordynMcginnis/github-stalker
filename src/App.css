@@ -116,6 +116,7 @@
   height: 50%;
   width: 70%;
   min-height: 200px;
+  border-radius: 3px;
 }
 
 .follower-bio-photo {
@@ -126,6 +127,7 @@
   width: 70%;
   min-height: 180px;
   max-height: 180px;
+  border-radius: 3px;
 }
 
 .Bio p {
@@ -351,6 +353,12 @@
 }
 .sum {
   width: 90%;
+}
+
+.search-button{
+  color: white;
+  background-color: #333333;
+  border-width: 0px;
 }
 
 @media screen and (max-width: 444px) {

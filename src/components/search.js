@@ -20,7 +20,7 @@ class Search extends Component {
         <GoMarkGithub className='github-icon'/>
         <input className='search-input' placeholder='Enter username... like jordynMcginnis' onChange={this.handleKey}/>
         <Link to={this.state.value}>
-          <button>Search</button>
+          <button className='search-button'>Search</button>
         </Link>
       </div>
     );
