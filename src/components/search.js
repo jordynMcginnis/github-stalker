@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GoMarkGithub from 'react-icons/lib/go/mark-github';
+import { Link } from 'react-router-dom';
 
 class Search extends Component {
   constructor(props) {
@@ -15,14 +16,17 @@ class Search extends Component {
     this.setState(({value}));
   }
   handleSubmit () {
-    this.props.handleClick(this.state.value);
+    console.log('link changed')
+    //this.props.handleClick(this.state.value);
   }
   render() {
     return (
       <div className="search">
         <GoMarkGithub className='github-icon'/>
         <input className='search-input' placeholder='Enter username... like jordynMcginnis' onChange={this.handleKey} onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit() : null}/>
-        <button onClick={this.handleSubmit}>Search</button>
+        <Link to={this.state.value}>
+          <button onClick={this.handleSubmit}>Search</button>
+        </Link>
       </div>
     );
   }
