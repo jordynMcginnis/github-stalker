@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class Events extends Component {
   render() {
     let order = this.props.events.sort((a, b) => a.created_at - b.created_at);
-    console.log(order);
     let results = Object.keys(this.props.events.reduce((result, {type}) => {
       if(!result[type]){
         result[type] = 1;
