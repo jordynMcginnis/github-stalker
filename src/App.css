@@ -195,23 +195,18 @@
   border-bottom-color: #8c8f92;
   border-bottom-width: 2px;
 }
-
 .results {
   margin-top: 6%;
 }
-
 .Contributions {
   width: 100%;
-
 }
-
 .tweet {
   display: flex;
   justify-content: flex-end;
   height: 30px;
   margin-top: 10px;
 }
-
 .twitter-share-button{
   display: flex;
   justify-content: flex-end;
@@ -220,16 +215,13 @@
   margin-bottom: 20px;
   border-radius: 5px;
   outline: none;
-
 }
-
 .tweet button {
   color: white;
   background-color: grey;
   border-radius: 5px;
   outline: none;
 }
-
 .author{
   display: flex;
   align-items: center;
@@ -241,34 +233,25 @@
   height:30px;
   background-color: #242930;
 }
-
 .month {
   height: 50px;
   width: 50px;
 }
-
 .status-light-green{
   height: 1px;
   width: 1px;
   background-color: green;
 }
-
-.status-dark-green{
-
-}
-
 .Events {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
 .Events p {
   display: flex;
   justify-content: center;
 }
-
 .fan-info {
   display: flex;
   justify-content: center;
@@ -279,7 +262,6 @@
   justify-content: center;
   font-size: 2vmax;
   color: black;
-
 }
 .f-result {
   display: flex;
@@ -290,7 +272,6 @@
   border-top-style: solid;
   border-top-color: #b8e986;
 }
-
 .Main {
   height: 90vh;
   width: 90vw;
@@ -340,7 +321,6 @@
   display: flex;
   justify-content: center;
 }
-
 .most {
   width: 70px;
   height: 30px;
