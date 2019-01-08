@@ -22,7 +22,7 @@ module.exports = {
       return user.data
     });
   },
-  getFollowers: function (username) {
+  // getFollowers: (username) => {
     // var count = -1;
     // var top5 = [];
     // return axios.get('https://api.github.com/users/'+ username + '/followers?per_page=100'+ '&' + params, header )
@@ -42,7 +42,7 @@ module.exports = {
     //     return 'hi'
     //   }
     // });
-  },
+  // },
   fetchFollowers: (username, num) => {
     return axios.get('https://api.github.com/users/' + username + '/followers?per_page=100&page='+num +'&' + params, header )
     .then(function(user){
