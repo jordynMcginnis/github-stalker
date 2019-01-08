@@ -299,7 +299,17 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-
+.tweet {
+  background-color: white;
+  border-width: 0px;
+  font-weight: bold;
+  color: green;
+  font-size: 1em;
+}
+.twitter-share-button{
+  text-decoration-line: none;
+  background-color: white;
+}
 .Followers{
   width: 100%;
 }

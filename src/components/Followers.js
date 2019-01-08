@@ -176,7 +176,7 @@ class Followers extends Component {
         <a className="twitter-share-button"
           href="https://twitter.com/intent/tweet?text=Check%20out%20this%20cool%20map%20that%20shows%20your%20github%20users%20locations!&hashtags=github-stalker&via=jordynbmcginnis"
           data-size="large">
-          <button> Tweet </button>
+          <button className='tweet'> Tweet </button>
         </a>
 
         <div className='popularFollower'>
