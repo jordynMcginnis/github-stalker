@@ -387,7 +387,8 @@
 
 .search-button{
   color: white;
-  background-color: #333333;
+  background-color: #233;
+  font-size: 1em;
   border-width: 0px;
 }
 

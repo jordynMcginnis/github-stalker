@@ -42,13 +42,13 @@ class App extends Component {
     });
 
     getProfile(target)
-    .then(function(repos){
-      this.setState(function(){
-        return {
-          result: repos
-        }
-      })
-    }.bind(this))
+    .then((repos) => {
+      if(!repos) {
+        this.setState(() => ({render: 'notFound'}));
+      } else {
+        this.setState(() => ({result: repos}))
+      }
+    })
 
     getContributions(target)
     .then(function(repos){
@@ -139,8 +139,9 @@ class App extends Component {
   }
 
   render() {
-    const { name, login, bio, created_at, location, public_repos, avatar_url } = this.state.result;
-    const {contributions, followers, list, events, person, issues, render} = this.state;
+    const { contributions, followers, list, events, person, issues, render, result } = this.state;
+    const { name, login, bio, created_at, location, public_repos, avatar_url } = result;
+
     return (
         <div className="App">
           {render === 'result'
@@ -172,6 +173,10 @@ class App extends Component {
           }
           {render === 'loading'
             ? <Loading amount={this.state.result.followers}/>
+            : null
+          }
+          {render === 'notFound'
+            ? <h1>Incorrect user name</h1>
             : null
           }
         </div>

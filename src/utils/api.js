@@ -11,7 +11,10 @@ module.exports = {
     return axios.get('https://api.github.com/users/' + username + '?' + params)
     .then(function(user){
       return user.data;
-    });
+    })
+    .catch(error => {
+      return false;
+    })
   },
   getContributions: function (username) {
     return axios.get('https://api.github.com/search/commits?q=repo:octocat/Spoon-Knife+css'+ params, header )
