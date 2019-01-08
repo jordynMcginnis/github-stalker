@@ -139,21 +139,22 @@ class App extends Component {
   }
 
   render() {
+    const { name, login, bio, created_at, location, public_repos, avatar_url } = this.state.result;
+    const {contributions, followers, list, events, person, issues} = this.state;
     return (
         <div className="App">
-
           {this.state.render === 'result'
             ? <div className="App-intro">
                 <Bio
-                  name= {this.state.result.name}
-                  userName={this.state.result.login}
-                  summary={this.state.result.bio}
-                  joined={this.state.result.created_at}
-                  location={this.state.result.location}
-                  repos={this.state.result.public_repos}
-                  photo={this.state.result.avatar_url}
+                  name= {name}
+                  userName={login}
+                  summary={bio}
+                  joined={created_at}
+                  location={location}
+                  repos={public_repos}
+                  photo={avatar_url}
                 />
-                <Nav contributions={this.state.contributions} followers={this.state.followers} list={this.state.list} events={this.state.events} fan={this.state.events} person={this.state.person} issues={this.state.issues}/>
+                <Nav contributions={contributions} followers={followers} list={list} events={events} fan={events} person={person} issues={issues}/>
               </div>
               : null
           }
