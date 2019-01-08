@@ -77,6 +77,7 @@
   text-align: center;
   font-size: 1.8em;
   color: #333333;
+  margin-bottom: 3px;
 }
 
 .follower-bio span {
@@ -104,6 +105,20 @@
 
 .bio-info h3 {
   margin-top: 5px;
+}
+
+.follower-bio .bio-info h3 {
+  margin-top: 0px;
+}
+
+.follower-bio-info h3 {
+  margin-top: 0px;
+}
+
+.bio-info h1 {
+  margin-bottom: 2px;
+  display: flex;
+  justify-content: center;
 }
 
 .Bio h1 {
