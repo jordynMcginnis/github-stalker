@@ -25,7 +25,7 @@
 .recharts-wrapper {
   width: 50%;
   height: 50%;
-  max-width: 500px;
+  max-width: 100%;
   max-height: 350px;
   min-height: 200px;
 }
