@@ -8,7 +8,7 @@ class FollowerBio extends Component {
       <div className="follower-bio">
         <div className='follower-bio-photo' style={{backgroundImage: "url(" + Background + ")"}}></div>
         <Link to={this.props.userName}>
-          <h1>{this.props.name}</h1>
+          <h1 className='h-link'>{this.props.name}</h1>
         </Link>
         <div className='follower-bio-info'>
           <h3>@{this.props.userName}</h3>

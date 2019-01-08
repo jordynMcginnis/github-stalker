@@ -73,11 +73,16 @@
   align-items: center;
 }
 
-.follower-bio h1 {
+.follower-bio a {
+  text-decoration: none;
+}
+
+.h-link {
   text-align: center;
   font-size: 1.8em;
   color: #333333;
   margin-bottom: 3px;
+  text-decoration: none;
 }
 
 .follower-bio span {
