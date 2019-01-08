@@ -8,9 +8,8 @@ class Search extends Component {
     this.state = {
       value: ''
     };
-    this.handleKey = this.handleKey.bind(this);
   }
-  handleKey ({target}) {
+  handleKey = ({target}) => {
     const value = target.value;
     this.setState(({value}));
   }
