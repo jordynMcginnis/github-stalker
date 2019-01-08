@@ -18,7 +18,7 @@ class Search extends Component {
     return (
       <div className="search">
         <GoMarkGithub className='github-icon'/>
-        <input className='search-input' placeholder='Enter username... like jordynMcginnis' onChange={this.handleKey} onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit() : null}/>
+        <input className='search-input' placeholder='Enter username... like jordynMcginnis' onChange={this.handleKey}/>
         <Link to={this.state.value}>
           <button>Search</button>
         </Link>
