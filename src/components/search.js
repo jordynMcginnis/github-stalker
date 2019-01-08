@@ -9,15 +9,10 @@ class Search extends Component {
       value: ''
     };
     this.handleKey = this.handleKey.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleKey ({target}) {
     const value = target.value;
     this.setState(({value}));
-  }
-  handleSubmit () {
-    console.log('link changed')
-    //this.props.handleClick(this.state.value);
   }
   render() {
     return (
@@ -25,7 +20,7 @@ class Search extends Component {
         <GoMarkGithub className='github-icon'/>
         <input className='search-input' placeholder='Enter username... like jordynMcginnis' onChange={this.handleKey} onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit() : null}/>
         <Link to={this.state.value}>
-          <button onClick={this.handleSubmit}>Search</button>
+          <button>Search</button>
         </Link>
       </div>
     );
