@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import USAMap from "react-usa-map";
-import Bio from './Bio.js';
-
+import FollowerBio from './followerBio.js';
 
 class Followers extends Component {
   constructor(props) {
@@ -184,7 +183,7 @@ class Followers extends Component {
           <div className='most-pop'> <span className='stats'>Most popular followers - </span>Results based on github user who has the most followers that is following user. </div>
           <div className='top'>
             {person !== undefined ?
-              <Bio
+              <FollowerBio
                 name= {person.name}
                 userName={person.login}
                 summary={person.bio}
@@ -196,7 +195,7 @@ class Followers extends Component {
               : null
             }
             {person2 !== undefined ?
-              <Bio
+              <FollowerBio
                 name= {person2.name}
                 userName={person2.login}
                 summary={person2.bio}

@@ -6,7 +6,7 @@ class Bio extends Component {
     return (
       <div className="Bio">
         <div className='bio-photo' style={{backgroundImage: "url(" + Background + ")"}}></div>
-        <h1>{this.props.name}</h1>
+        <span><h1>{this.props.name}</h1></span>
         <div className='bio-info'>
           <h3>{this.props.userName}</h3>
           <p className='sum'> {this.props.summary} </p>
