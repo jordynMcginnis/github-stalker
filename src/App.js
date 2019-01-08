@@ -23,7 +23,9 @@ class App extends Component {
     this.callAgain = this.callAgain.bind(this);
   }
   componentDidMount () {
-    console.log(this.props.match.params.id);
+    this.handleClick(this.props.match.params.id);
+  }
+  componentWillReceiveProps () {
     this.handleClick(this.props.match.params.id);
   }
   handleClick(target) {
