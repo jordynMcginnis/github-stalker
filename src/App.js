@@ -51,23 +51,14 @@ class App extends Component {
       })
 
     getContributions(target)
-      .then(function(repos){
-        this.setState(function(){
-          return {
-            contributions: repos
-          }
-        })
-      }.bind(this))
+      .then((repos) => {
+        this.setState(() => ({contributions: repos}))
+      })
 
     getEvents(target)
-      .then(function(events){
-        this.setState(function(){
-          return {
-            events: events,
-            person: target
-          }
-        })
-      }.bind(this))
+      .then((events) => {
+        this.setState(() => ({events: events,person: target}))
+      })
 
     getIssues(target)
       .then(res => {
