@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 const Day = (props) => (
   <div className='status-light-green'></div>
 )

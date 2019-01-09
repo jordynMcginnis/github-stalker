@@ -10,7 +10,7 @@ class Bio extends Component {
         <span><h2 className='t-name'>{name}</h2></span>
         <div className='bio-info'>
           <h3>@{userName}</h3>
-          <p className='sum'> {summary} </p>
+          <p className='sum'>{summary}</p>
           <p>Joined Github: {joined.slice(5,7)}/{joined.slice(8,10)}/{joined.slice(0,4)}</p>
           <p>Location: {location}</p>
           <p>Public Repos: {repos}</p>
