@@ -4,8 +4,6 @@ var sec = "9d9d4df620267d122ce90131abfc34dd5f77646f";
 var params = 'client_id=' + id + "&client_secret=" + sec;
 var header =  { 'headers': { 'Accept': 'application/vnd.github.cloak-preview' } }
 
-
-
 module.exports = {
   getProfile: (username) => {
     return axios.get('https://api.github.com/users/' + username + '?' + params)
