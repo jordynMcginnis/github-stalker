@@ -42,41 +42,41 @@ class App extends Component {
     });
 
     getProfile(target)
-    .then((repos) => {
-      if(!repos) {
-        this.setState(() => ({render: 'notFound'}));
-      } else {
-        this.setState(() => ({result: repos}))
-      }
-    })
+      .then((repos) => {
+        if(!repos) {
+          this.setState(() => ({render: 'notFound'}));
+        } else {
+          this.setState(() => ({result: repos}))
+        }
+      })
 
     getContributions(target)
-    .then(function(repos){
-      this.setState(function(){
-        return {
-          contributions: repos
-        }
-      })
-    }.bind(this))
+      .then(function(repos){
+        this.setState(function(){
+          return {
+            contributions: repos
+          }
+        })
+      }.bind(this))
 
     getEvents(target)
-    .then(function(events){
-      this.setState(function(){
-        return {
-          events: events,
-          person: target
-        }
-      })
-    }.bind(this))
+      .then(function(events){
+        this.setState(function(){
+          return {
+            events: events,
+            person: target
+          }
+        })
+      }.bind(this))
 
     getIssues(target)
-    .then(function(res){
-      this.setState(function(){
-        return {
-          issues: res
-        }
+      .then((res) => {
+        this.setState(() =>{
+          return {
+            issues: res
+          }
+        })
       })
-    }.bind(this))
 
     this.callAgain(target, 1);
   }
