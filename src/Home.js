@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import App from './App.js';
 import Search from './components/search.js';
 
-
 class Home extends Component {
   render() {
     return (
