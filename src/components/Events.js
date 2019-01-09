@@ -21,7 +21,7 @@ class Events extends Component {
     }, {}));
     return (
       <div className='Events'>
-        { order.length === 0
+        {order.length === 0
           ? <p>No events</p>
           : <p> Events from Users from  {order[order.length - 1].created_at.slice(5,7)}/{order[order.length - 1].created_at.slice(8,10)}/{order[order.length - 1].created_at.slice(0,4)} to  {order[0].created_at.slice(5,7)}/{order[0].created_at.slice(8,10)}/{order[0].created_at.slice(0,4)}</p>
         }
