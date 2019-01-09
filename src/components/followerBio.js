@@ -3,15 +3,16 @@ import { Link } from 'react-router-dom';
 
 class FollowerBio extends Component {
   render() {
-    var Background = this.props.photo;
+    const Background = this.props.photo;
+    const { userName, name } = this.props;
     return (
       <div className="follower-bio">
         <div className='follower-bio-photo' style={{backgroundImage: "url(" + Background + ")"}}></div>
-        <Link to={this.props.userName}>
-          <h1 className='h-link'>{this.props.name}</h1>
+        <Link to={userName}>
+          <h1 className='h-link'>{name}</h1>
         </Link>
         <div className='follower-bio-info'>
-          <h3>@{this.props.userName}</h3>
+          <h3>@{userName}</h3>
         </div>
       </div>
     );
