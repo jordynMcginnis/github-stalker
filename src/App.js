@@ -70,12 +70,8 @@ class App extends Component {
       }.bind(this))
 
     getIssues(target)
-      .then((res) => {
-        this.setState(() =>{
-          return {
-            issues: res
-          }
-        })
+      .then(res => {
+        this.setState(() =>({issues: res}))
       })
 
     this.callAgain(target, 1);
