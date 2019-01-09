@@ -23,9 +23,11 @@ class App extends Component {
   componentDidMount () {
     this.handleClick(this.props.match.params.id);
   }
+
   componentWillReceiveProps () {
     this.handleClick(this.props.match.params.id);
   }
+
   handleClick = (target) => {
     this.setState(function(){
       return {
