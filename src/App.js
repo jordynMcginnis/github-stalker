@@ -29,8 +29,7 @@ class App extends Component {
   }
 
   handleClick = (target) => {
-    this.setState(function(){
-      return {
+    this.setState(() => ({
       result: '',
       contributions: '',
       followers: [],
@@ -38,8 +37,7 @@ class App extends Component {
       issues: '',
       list: [],
       render: 'loading'
-      }
-    });
+    }));
 
     getProfile(target)
       .then((repos) => {
@@ -70,39 +68,39 @@ class App extends Component {
 
   callAgain = (value, num, results = []) => {
     fetchFollowers(value, num)
-    .then(function(followers){
-      if(followers.headers.link){
-        var arr1 = followers.headers.link.split(' ')[followers.headers.link.split(' ').indexOf('rel="last"') - 1];
-        var arr2 = followers.headers.link.split(' ')[followers.headers.link.split(' ').indexOf('rel="last",') - 1];
-      }
-
-      if(arr1 || arr2){
-        var arr;
-        if(arr1 === undefined) {
-          arr = arr2
-        } else {
-          arr = arr1;
+      .then((followers) => {
+        if(followers.headers.link){
+          var arr1 = followers.headers.link.split(' ')[followers.headers.link.split(' ').indexOf('rel="last"') - 1];
+          var arr2 = followers.headers.link.split(' ')[followers.headers.link.split(' ').indexOf('rel="last",') - 1];
         }
-        var index = arr.indexOf('&page=');
-        var finalPage = arr.toString().slice(index + 6, index + 8);
 
-        if(num >= Number.parseInt(finalPage)){
-          return;
-        } else {
-          var final = results.concat(followers.data);
-          this.callAgain(value, num + 1, final);
+        if(arr1 || arr2){
+          var arr;
+          if(arr1 === undefined) {
+            arr = arr2
+          } else {
+            arr = arr1;
           }
-      } else {
-        final = results.concat(followers.data);
-        this.setState(function(){
-          return {
-            followers: final
+          var index = arr.indexOf('&page=');
+          var finalPage = arr.toString().slice(index + 6, index + 8);
+
+          if(num >= Number.parseInt(finalPage)){
+            return;
+          } else {
+            var final = results.concat(followers.data);
+            this.callAgain(value, num + 1, final);
+            }
+        } else {
+          final = results.concat(followers.data);
+          this.setState(function(){
+            return {
+              followers: final
+            }
+          })
+          this.handleFollower();
+          return;
           }
         })
-        this.handleFollower();
-        return;
-        }
-      }.bind(this))
     }
 
   handleFollower = () =>  {
