@@ -235,7 +235,9 @@ body {
 .fan-info {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin-bottom: 10px;
+  width: 100%;
 }
 .fan-name {
   display: flex;
@@ -275,8 +277,8 @@ body {
   width: 100%;
 }
 .stats {
-  font-weight: bold;
   width: 100%;
+  font-weight: bold;
   display: flex;
   flex-wrap: wrap;
 }
