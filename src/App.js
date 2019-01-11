@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import Bio from './components/Bio.js';
 import Nav from './components/Nav.js';
 import { getProfile, getContributions, getEvents, getIssues, fetchFollowers } from './utils/api.js';
