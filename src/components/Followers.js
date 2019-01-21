@@ -154,8 +154,10 @@ class Followers extends Component {
   return count;
 }
   render() {
-    let person = this.props.list.sort(function(a, b){ return b.followers - a.followers})[0];
-    let person2 = this.props.list.sort(function(a, b){ return b.followers - a.followers})[1];
+    const link = `www.githubstalker.com/${this.props.link}`;
+    const title = `Check out this map that shows my Github follower's locations! ${link}`
+    const person = this.props.list.sort(function(a, b){ return b.followers - a.followers})[0];
+    const person2 = this.props.list.sort(function(a, b){ return b.followers - a.followers})[1];
     return (
       <div className='Followers'>
         <span className='stats'>Followers Stats - </span> Results based upon users who specify location within the USA.
@@ -174,8 +176,9 @@ class Followers extends Component {
           }
 
         <a className="twitter-share-button"
-          href="https://twitter.com/intent/tweet?text=Check%20out%20this%20cool%20map%20that%20shows%20your%20github%20users%20locations!&hashtags=github-stalker&via=jordynbmcginnis"
-          data-size="large">
+          href={`https://twitter.com/share?url=${link}&text=${title}`}
+          data-size="large"
+          data-url="www.google.com">
           <button className='tweet'> Tweet </button>
         </a>
 

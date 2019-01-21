@@ -147,6 +147,7 @@ class App extends Component {
                   fan={events}
                   person={person}
                   issues={issues}
+                  link={this.props.match.params.id}
                 />
               </div>
               : null
