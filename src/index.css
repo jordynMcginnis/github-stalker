@@ -187,7 +187,7 @@ body {
   height: 30px;
   margin-top: 10px;
 }
-.twitter-share-button{
+.twitter-share-button {
   display: flex;
   justify-content: flex-end;
   font-weight: bold;
@@ -202,7 +202,7 @@ body {
   border-radius: 5px;
   outline: none;
 }
-.author{
+.author {
   display: flex;
   align-items: center;
   border-top-width: 1px;
@@ -233,8 +233,6 @@ body {
   justify-content: center;
 }
 .fan-info {
-  display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 10px;
   width: 100%;
@@ -269,18 +267,15 @@ body {
   color: green;
   font-size: 1em;
 }
-.twitter-share-button{
+.twitter-share-button {
   text-decoration-line: none;
   background-color: white;
 }
-.Followers{
+.Followers {
   width: 100%;
 }
 .stats {
-  width: 100%;
   font-weight: bold;
-  display: flex;
-  flex-wrap: wrap;
 }
 .map{
   width: 100%;
