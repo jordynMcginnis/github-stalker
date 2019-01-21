@@ -365,7 +365,7 @@ body {
 }
 .search-button{
   color: white;
-  background-color: #233;
+  background-color:transparent;
   font-size: 1em;
   border-width: 0px;
 }
