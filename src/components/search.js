@@ -13,13 +13,24 @@ class Search extends Component {
     const value = target.value;
     this.setState(({value}));
   }
+  handleSearch = () => {
+    this.setState(({value : ''}));
+  }
   render() {
     return (
       <div className="search">
         <GoMarkGithub className='github-icon'/>
-        <input className='search-input' placeholder='Enter username... like jordynMcginnis' onChange={this.handleKey}/>
+        <input
+          className='search-input'
+          placeholder='Enter username... like jordynMcginnis'
+          onChange={this.handleKey}
+        />
         <Link to={this.state.value}>
-          <button className='search-button'>Search</button>
+          <button
+            className='search-button'
+            onClick={this.handleSearch}>
+            Search
+          </button>
         </Link>
       </div>
     );

@@ -23,8 +23,8 @@ class App extends Component {
     this.handleClick(this.props.match.params.id);
   }
 
-  componentWillReceiveProps () {
-    this.handleClick(this.props.match.params.id);
+  componentWillReceiveProps (newProps) {
+    this.handleClick(newProps.match.params.id);
   }
 
   handleClick = (target) => {

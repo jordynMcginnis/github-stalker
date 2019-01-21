@@ -378,12 +378,16 @@ body {
   font-size: 5vw;
 }
 
-@media screen and (max-width: 444px) {
+@media screen and (max-width: 999px) {
   .Bio {
-    height: 330px;
+    height: 200px;
   }
   .bio-photo {
     min-height: 170px;
+  }
+  .bio-info {
+    width: auto;
+    display: none;
   }
   .Nav {
     margin-top: 10px;
@@ -395,5 +399,24 @@ body {
   .follower-bio {
     height: 40vh;
   }
-
+}
+@media screen and (max-width: 375px) {
+  .f-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (width: 320px) {
+  .Bio {
+    height: 250px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .bio-info {
+    height: 10px;
+    display: none;
+  }
 }
