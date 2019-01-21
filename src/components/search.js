@@ -24,11 +24,13 @@ class Search extends Component {
           className='search-input'
           placeholder='Enter username... like jordynMcginnis'
           onChange={this.handleKey}
+          value={this.state.value}
         />
         <Link to={this.state.value}>
           <button
             className='search-button'
-            onClick={this.handleSearch}>
+            onClick={this.handleSearch}
+          >
             Search
           </button>
         </Link>
