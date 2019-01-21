@@ -161,7 +161,7 @@ class App extends Component {
             : null
           }
           {render === 'notFound'
-            ? <h1>Incorrect user name</h1>
+            ? <h1 className='incorrect'>Incorrect Username</h1>
             : null
           }
         </div>
