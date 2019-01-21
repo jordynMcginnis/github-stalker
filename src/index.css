@@ -127,6 +127,7 @@ body {
   height: 50%;
   width: 80%;
   min-height: 300px;
+  max-height: 350px;
   border-radius: 3px;
 }
 .t-name {
