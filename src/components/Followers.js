@@ -155,7 +155,7 @@ class Followers extends Component {
 }
   render() {
     const link = `www.githubstalker.com/${this.props.link}`;
-    const title = `Check out this map that shows my Github follower's locations! ${link}`
+    const title = `Check out this map that shows my Github follower's locations, stalker, and events associated with my github account! ${link}`
     const person = this.props.list.sort(function(a, b){ return b.followers - a.followers})[0];
     const person2 = this.props.list.sort(function(a, b){ return b.followers - a.followers})[1];
     return (
