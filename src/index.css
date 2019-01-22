@@ -391,6 +391,9 @@ body {
   .bio-info {
     font-size: 15px;
   }
+  .t-name {
+    margin-bottom: 30px;
+  }
 }
 @media screen and (max-width: 1016px) {
   .Bio {

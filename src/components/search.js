@@ -22,7 +22,7 @@ class Search extends Component {
         <GoMarkGithub className='github-icon'/>
         <input
           className='search-input'
-          placeholder='Enter username... like jordynMcginnis'
+          placeholder='username'
           onChange={this.handleKey}
           value={this.state.value}
         />

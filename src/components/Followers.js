@@ -134,13 +134,13 @@ class Followers extends Component {
         count[key] = {fill: guide.most}
       }
       if (count[key] >= top30){
-        count[key] = { fill: guide.more}
+        count[key] = {fill: guide.more}
       }
       else if (count[key] >= top50){
-        count[key]= { fill : guide.middle}
+        count[key]= {fill : guide.middle}
       }
       else if(count[key] >= top99){
-        count[key]= { fill: guide.low}
+        count[key]= {fill: guide.low}
       }
     }
 
@@ -155,7 +155,7 @@ class Followers extends Component {
 }
   render() {
     const link = `www.githubstalker.com/${this.props.link}`;
-    const title = `Check out this map that shows my Github follower's locations, stalker, and events associated with my github account! ${link}`
+    const title = `Check out this app that shows my Github stalker,follower's locations, and events associated with my github account! ${link}`
     const person = this.props.list.sort(function(a, b){ return b.followers - a.followers})[0];
     const person2 = this.props.list.sort(function(a, b){ return b.followers - a.followers})[1];
     return (
