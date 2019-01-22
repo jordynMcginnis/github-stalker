@@ -45,6 +45,9 @@ body {
   font-size: 30px;
   padding: 10px;
 }
+.g-events {
+  font-weight: bold;
+}
 .search-input {
   background-color: #3f4449;
   border-color: transparent;
@@ -227,10 +230,6 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-}
-.Events p {
-  display: flex;
   justify-content: center;
 }
 .fan-info {
