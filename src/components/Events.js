@@ -10,7 +10,12 @@ class Events extends Component {
         result[type] = result[type] + 1;
       }
       return result;
-    }, {}));
+    }, {})).map((item) => {
+      if(item === 'WatchEvent'){
+        item = 'watched'
+      }
+      return item;
+    });
     let other = Object.values(this.props.events.reduce((result, {type}) => {
       if(!result[type]){
         result[type] = 1;
@@ -19,13 +24,14 @@ class Events extends Component {
       }
       return result;
     }, {}));
+
     return (
       <div className='Events'>
         {order.length === 0
           ? <p>No events</p>
           : <p> <span className='g-events'>Github Events - </span> Events associated with account from {order[order.length - 1].created_at.slice(5,7)}/{order[order.length - 1].created_at.slice(8,10)}/{order[order.length - 1].created_at.slice(0,4)} to  {order[0].created_at.slice(5,7)}/{order[0].created_at.slice(8,10)}/{order[0].created_at.slice(0,4)}.</p>
         }
-        {results.map((item, index) => <div className= 'f-result' key={item}> {item} : {other[index]} </div> )}
+        {results.map((item, index) => <div className= 'f-result' key={item}>Repositories {item} : {other[index]} times </div> )}
       </div>
     );
   }

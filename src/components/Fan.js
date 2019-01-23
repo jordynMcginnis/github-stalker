@@ -23,13 +23,22 @@ class Fan extends Component {
     };
     let personEvent = props.events.filter(({actor}) => actor.login === name);
     let background = personEvent[0].actor.avatar_url;
+    console.log(personEvent)
+    let edit = personEvent.map((item) => {
+      console.log(item.type);
+      if(item.type === 'WatchEvent'){
+        item.type = 'watched'
+      }
+      return item;
+    });
+    console.log(edit);
     return (
       <div className='Contributions'>
         <div className='fan-photo' style={{backgroundImage: "url(" + background + ")"}}></div>
         <p className='fan-name'>{name === '' ? 'No Stalker' : name}</p>
         <div className='fan-info'> <span className='stats'> Github Stalker - </span>  Results based on recent activity from Github users associated with account.</div>
         <div className='fan-results'>
-          {personEvent.map(({repo, created_at, type}) => <div className='f-result' key={repo.name}> <span>{type}:</span>{repo.name}<span>{created_at.slice(5,7)}/{created_at.slice(8,10)}/{created_at.slice(0,4)}</span></div>)}
+          {personEvent.map(({repo, created_at, type}) => <div className='f-result' key={repo.name}> {repo.name} was {type} on <span>{created_at.slice(5,7)}/{created_at.slice(8,10)}/{created_at.slice(0,4)}</span></div>)}
         </div>
       </div>
     );
