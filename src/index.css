@@ -19,6 +19,23 @@ body {
 .instructions p {
   margin-top: -15px;
 }
+
+.recharts-wrapper {
+  width: 100%;
+}
+.r {
+  display: flex;
+  justify-content: center;
+}
+.recharts-default-legend li{
+  border-radius: 10px;
+}
+.recharts-default-legend li svg {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  border-radius: 5px;
+}
 .options-i {
   align-self: flex-end;
   margin-bottom: 0px;
@@ -323,7 +340,7 @@ body {
 .f-result {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: 60px;
   border-top-width: 1px;
   border-top-style: solid;

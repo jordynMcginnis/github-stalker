@@ -14,7 +14,7 @@ class Instructions extends Component {
           <li>
             <GoLocation className='icon'/>
             <span className='i-title'>View Followers Locations</span>
-            View all of your followers locations within the USA on a Map.
+            View all of your followers locations within the USA on a map.
           </li>
           <li>
             <GoPerson className='icon'/>
@@ -24,12 +24,12 @@ class Instructions extends Component {
           <li>
             <GoKeyboard className='icon'/>
             <span className='i-title'> View Events</span>
-            View all Github events that you or other users have made in regards to your account within a given time frame.
+            See how many users have forked, watched, and starred your repositories.
           </li>
           <li>
             <GoAlert className='icon'/>
             <span className='i-title'>View Issues</span>
-            View history of all issues associated with account over a year timespan via a graph.
+            View history of all issues associated with your account over a year timespan via a graph.
           </li>
         </ul>
       </div>
