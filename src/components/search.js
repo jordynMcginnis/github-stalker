@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import GoMarkGithub from 'react-icons/lib/go/mark-github';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class Search extends Component {
   constructor(props) {
@@ -14,7 +14,9 @@ class Search extends Component {
     this.setState(({value}));
   }
   handleSearch = () => {
+    const { username } = this.state
     this.setState(({value : ''}));
+    this.props.history.push(`/${username}`)
   }
   render() {
     return (
@@ -25,18 +27,21 @@ class Search extends Component {
           placeholder='username'
           onChange={this.handleKey}
           value={this.state.value}
+          onKeyDown={(e) => {
+            if (e.keyCode === 13) {
+              this.handleSearch()
+            }
+          }}
         />
-        <Link to={this.state.value}>
-          <button
-            className='search-button'
-            onClick={this.handleSearch}
-          >
-            Search
-          </button>
-        </Link>
+        <button
+          className='search-button'
+          onClick={this.handleSearch}
+        >
+          Search
+        </button>
       </div>
     );
   }
 }
 
-export default Search;
+export default withRouter(Search);

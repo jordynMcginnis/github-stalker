@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import USAMap from "react-usa-map";
-import FollowerBio from './followerBio.js';
+import FollowerBio from './FollowerBio.js';
 
 class Followers extends Component {
   constructor(props) {

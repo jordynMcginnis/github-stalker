@@ -8,12 +8,12 @@ class FollowerBio extends Component {
     return (
       <div className="follower-bio">
         <div className='follower-bio-photo' style={{backgroundImage: "url(" + Background + ")"}}></div>
-        <Link to={userName}>
           <h1 className='h-link'>{name}</h1>
+        <Link to={userName}>
+          <div className='follower-bio-info'>
+            <h3>@{userName}</h3>
+          </div>
         </Link>
-        <div className='follower-bio-info'>
-          <h3>@{userName}</h3>
-        </div>
       </div>
     );
   }

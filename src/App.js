@@ -40,7 +40,14 @@ class App extends Component {
 
     getProfile(target)
       .then((repos) => {
-        if(!repos) {
+        if(repos === 404){
+          console.log('got error code')
+          this.setState(() => ({render: 'noUserName'}));
+        }
+        else if (repos === 403) {
+          this.setState(() => ({render: 'limit'}));
+        }
+        else if(typeof(repos) === 'number') {
           this.setState(() => ({render: 'notFound'}));
         } else {
           this.setState(() => ({result: repos}))
@@ -161,7 +168,15 @@ class App extends Component {
             : null
           }
           {render === 'notFound'
-            ? <h1 className='incorrect'>Incorrect Username</h1>
+            ? <h1 className='incorrect'>Oops something went wrong...</h1>
+            : null
+          }
+           {render === 'limit'
+            ? <h1 className='incorrect'>Api limit hit please come back in an hour or so...</h1>
+            : null
+          }
+          {render === 'noUserName'
+            ? <h1 className='incorrect'>Incorrect username</h1>
             : null
           }
         </div>

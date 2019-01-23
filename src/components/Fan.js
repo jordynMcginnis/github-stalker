@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class Fan extends Component {
   render() {
     let props = this.props;
+    console.log(props)
     let main = props.person;
     const result = props.events.reduce((result, {actor, repo}) => {
       if(!result[actor.login] && repo.name.indexOf(main) > -1){
@@ -21,9 +22,11 @@ class Fan extends Component {
       }
     };
     let personEvent = props.events.filter(({actor}) => actor.login === name);
+    let background = personEvent[0].actor.avatar_url;
     return (
       <div className='Contributions'>
-        <p className='fan-name'>  {name === '' ? 'No Stalker' : name} </p>
+        <div className='fan-photo' style={{backgroundImage: "url(" + background + ")"}}></div>
+        <p className='fan-name'>{name === '' ? 'No Stalker' : name}</p>
         <div className='fan-info'> <span className='stats'> Github Stalker - </span>  Results based on recent activity from Github users associated with account.</div>
         <div className='fan-results'>
           {personEvent.map(({repo, created_at, type}) => <div className='f-result' key={repo.name}> <span>{type}:</span>{repo.name}<span>{created_at.slice(5,7)}/{created_at.slice(8,10)}/{created_at.slice(0,4)}</span></div>)}

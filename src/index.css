@@ -3,6 +3,14 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.instructions {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .App {
   width: 100vw;
 }
@@ -103,9 +111,18 @@ body {
 .bio-info {
   width: 70%;
 }
-.bio-info h3 {
+.bio-info a{
   margin-top: 5px;
+  text-decoration: none;
+  list-style: none;
+  color: #8c8f92;
 }
+.follower-bio a {
+  text-decoration: none;
+  list-style: none;
+  color: #8c8f92;
+}
+
 .follower-bio .bio-info h3 {
   margin-top: 0px;
 }
@@ -239,6 +256,16 @@ body {
   flex-wrap: wrap;
   margin-bottom: 20px;
   width: 100%;
+}
+.fan-photo {
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center;
+  height: 50%;
+  width: 80%;
+  min-height: 180px;
+  max-height: 180px;
+  border-radius: 3px;
 }
 .fan-name {
   display: flex;

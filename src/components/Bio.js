@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Bio extends Component {
   render() {
@@ -10,7 +11,9 @@ class Bio extends Component {
         <div className='bio-photo' style={{backgroundImage: "url(" + Background + ")"}}></div>
         <span><h2 className='t-name'>{name}</h2></span>
         <div className='bio-info'>
-          <h3>@{userName}</h3>
+          <Link to={userName}>
+            <h3>@{userName}</h3>
+          </Link>
           <p className='sum'>{summary}</p>
           <p>Joined Github: {joined.slice(5,7)}/{joined.slice(8,10)}/{joined.slice(0,4)}</p>
           <p>Location: {location}</p>

@@ -11,6 +11,9 @@ module.exports = {
       return user.data;
     })
     .catch(error => {
+      if (error.response) {
+        return error.response.status;
+      }
       return false;
     })
   },
