@@ -19,17 +19,17 @@ class Instructions extends Component {
           <li>
             <GoPerson className='icon'/>
             <span className='i-title'>View Stalker</span>
-            View who is Stalking you on Github via Github events such as watching,forking, cloning, or staring any of your repositories etc.
+            View who your github stalker is via a list of events a user has made in regards to your account.
           </li>
           <li>
             <GoKeyboard className='icon'/>
             <span className='i-title'> View Events</span>
-            View any Github events that you or other Gihub users have made in regards to your account.
+            View all Github events that you or other users have made in regards to your account within a given time frame.
           </li>
           <li>
             <GoAlert className='icon'/>
             <span className='i-title'>View Issues</span>
-            View all isssues with account
+            View history of all issues associated with account over a year timespan via a graph.
           </li>
         </ul>
       </div>
