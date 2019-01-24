@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import {RadialBarChart, RadialBar, Legend} from 'recharts';
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import GoRepoForked from 'react-icons/lib/go/repo-forked';
+import GoHeart from 'react-icons/lib/go/heart';
+import GoTelescope from 'react-icons/lib/go/telescope';
 
 class Events extends Component {
   render() {
@@ -10,8 +13,9 @@ class Events extends Component {
       margin: '0 auto'
     };
     let key = {
-      WatchEvent: 'watch',
-      ForkEvent: 'fork',
+      WatchEvent: 'watched',
+      ForkEvent: 'forked',
+      StarredEvent: 'starred'
     }
     let order = this.props.events.sort((a, b) => a.created_at - b.created_at);
     let results = Object.keys(this.props.events.reduce((result, {type}) => {
@@ -52,10 +56,13 @@ class Events extends Component {
       for (var i = 0; i < 6; i++) {
         color += letters[Math.floor(Math.random() * 16)];
       }
+
       return color;
     }
-    let data = results.reduce((result,item, index) => {
+    let red = results.reduce((result,item, index) => {
+      console.log('here', item)
       if(!!item){
+        console.log('this ran')
         let obj = {};
         obj.name = item;
         obj.uv = other[index];
@@ -64,18 +71,42 @@ class Events extends Component {
       }
       return result;
     },[]);
-    console.log(data);
+    console.log('before', red);
+    let finalize = (data) => {
+      let arr = ['watched', 'starred', 'forked'];
+      for(var i = 2; i >= 0; i--){
+        for(var j = 0; j < data.length; j++){
+          console.log(data[j].name, arr[i]);
+          if(data[j].name === arr[i]) {
+            arr.splice(i, 1);
+        }
+      }
+
+    }
+      for(var k = 0; k < arr.length; k++){
+            let obj = {};
+            obj.name = arr[k];
+            obj.uv = 1;
+            obj.fill = randomCol();
+            data.push(obj);
+      }
+      return data
+    }
+    let finalInfo = finalize(red);
+    console.log('here', finalInfo);
     return (
       <div className='Events'>
         {order.length === 0
           ? <p>No events</p>
-          : <p> <span className='g-events'>Github Repository Events - </span> Events associated with your repositories from {order[order.length - 1].created_at.slice(5,7)}/{order[order.length - 1].created_at.slice(8,10)}/{order[order.length - 1].created_at.slice(0,4)} to  {order[0].created_at.slice(5,7)}/{order[0].created_at.slice(8,10)}/{order[0].created_at.slice(0,4)} from any github users.</p>
+          : <p> <span className='g-events'>Github Repository Events - </span> Amount of your repositories that have been forked, watched, and cloned from {order[order.length - 1].created_at.slice(5,7)}/{order[order.length - 1].created_at.slice(8,10)}/{order[order.length - 1].created_at.slice(0,4)} to  {order[0].created_at.slice(5,7)}/{order[0].created_at.slice(8,10)}/{order[0].created_at.slice(0,4)} from any github user.</p>
         }
         <div className='r'>
-          <RadialBarChart width={500} height={300} cx={150} cy={150} innerRadius={20} outerRadius={140} barSize={10} data ={data} >
-          <RadialBar minAngle={15} label={{ position: 'insideStart', fill: '#fff' }} background clockWise={true} dataKey='uv'/>
-          <Legend iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' wrapperStyle={style}/>
-          </RadialBarChart>
+          <BarChart width={450} height={300} data={finalInfo}>
+           <Bar dataKey='uv' fill='#8884d8'/>
+          </BarChart>
+          <div className='e-items'>
+          {finalInfo.map((item) => { return <div key={item.name} className='e-info'>{item.uv} of your repositories have been {item.name} by github users.</div>})}
+          </div>
         </div>
       </div>
     );

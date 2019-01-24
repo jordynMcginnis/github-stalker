@@ -27,14 +27,14 @@ class Issues extends Component {
       {name: 'December', issues: result['12']},
     ];
     return (
-      <div>
+      <div className='issues'>
         <span className='stats'> Github Issues - </span> Finds issues and pull requests that were either created by a certain user, assigned to that user, mention that user, or were commented on by that user.
         <BarChart width={800} height={300} data={data} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
           <CartesianGrid strokeDasharray="2 2"/>
           <XAxis dataKey="name"/>
           <YAxis/>
           <Tooltip/>
-          <Bar dataKey="issues" fill="#00df6e" />
+          <Bar dataKey="issues" fill="#25c1a7" />
         </BarChart>
       </div>
     );
