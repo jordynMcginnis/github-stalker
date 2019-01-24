@@ -23,20 +23,22 @@ class Fan extends Component {
         name = key;
       }
     };
-
     const personEvent = props.events.filter(({actor}) => actor.login === name);
-    const background = personEvent[0].actor.avatar_url;
-
-    const edit = personEvent.map((item) => {
+    let background = null;
+    if(personEvent.length > 0){
+      background = personEvent[0].actor.avatar_url;
+    } else {
+      background = null;
+    }
+    personEvent.map((item) => {
       if(item.type === 'WatchEvent'){
         item.type = 'watched'
       }
       return item;
     });
-
     return (
       <div className='Contributions'>
-        <div className='fan-info'> <span className='stats'> Github Stalker - </span>  Results based on recent activity from Github users associated with account.</div>
+        <div className='fan-info'> <span className='stats'> Github Stalker - </span>  Results based on activity from Github users associated with account within the past week.</div>
         <div className='fan-photo' style={{backgroundImage: "url(" + background + ")"}}></div>
         <p className='fan-name'>{name === '' ? 'No Stalker' : name}</p>
         <div className='fan-results'>

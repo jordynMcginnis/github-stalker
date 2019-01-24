@@ -41,7 +41,6 @@ class App extends Component {
     getProfile(target)
       .then((repos) => {
         if(repos === 404){
-          console.log('got error code')
           this.setState(() => ({render: 'noUserName'}));
         }
         else if (repos === 403) {
@@ -75,27 +74,29 @@ class App extends Component {
   callAgain = (value, num, results = []) => {
     fetchFollowers(value, num)
       .then((followers) => {
+        let arr1 = null;
+        let arr2 = null;
+        let final = null;
         if(followers.headers.link){
-          var arr1 = followers.headers.link.split(' ')[followers.headers.link.split(' ').indexOf('rel="last"') - 1];
-          var arr2 = followers.headers.link.split(' ')[followers.headers.link.split(' ').indexOf('rel="last",') - 1];
+          arr1 = followers.headers.link.split(' ')[followers.headers.link.split(' ').indexOf('rel="last"') - 1];
+          arr2 = followers.headers.link.split(' ')[followers.headers.link.split(' ').indexOf('rel="last",') - 1];
         }
-
         if(arr1 || arr2){
-          var arr;
+          let arr = null;
           if(arr1 === undefined) {
             arr = arr2
           } else {
             arr = arr1;
           }
-          var index = arr.indexOf('&page=');
-          var finalPage = arr.toString().slice(index + 6, index + 8);
+          const index = arr.indexOf('&page=');
+          const finalPage = arr.toString().slice(index + 6, index + 8);
 
-          if(num >= Number.parseInt(finalPage)){
+          if(num >= finalPage){
             return;
           } else {
-            var final = results.concat(followers.data);
+            final = results.concat(followers.data);
             this.callAgain(value, num + 1, final);
-            }
+          }
         } else {
           final = results.concat(followers.data);
           this.setState(function(){
@@ -107,14 +108,14 @@ class App extends Component {
           return;
           }
         })
-    }
+  }
 
   handleFollower = () =>  {
-    var results = [];
+    let results = [];
     this.state.followers.forEach((person) => {
     getProfile(person.login)
       .then((repos) => {
-        var final = results.concat(repos);
+        const final = results.concat(repos);
         if(final.length === this.state.result.followers){
           this.setState(() => {
             return {

@@ -6,16 +6,16 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      username: ''
     };
   }
   handleKey = ({target}) => {
-    const value = target.value;
-    this.setState(({value}));
+    const username = target.value;
+    this.setState(({username}));
   }
   handleSearch = () => {
     const { username } = this.state
-    this.setState(({value : ''}));
+    this.setState(({username : ''}));
     this.props.history.push(`/${username}`)
   }
   render() {
@@ -26,7 +26,7 @@ class Search extends Component {
           className='search-input'
           placeholder='username'
           onChange={this.handleKey}
-          value={this.state.value}
+          value={this.state.username}
           onKeyDown={(e) => {
             if (e.keyCode === 13) {
               this.handleSearch()
