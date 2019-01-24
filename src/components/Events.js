@@ -9,8 +9,11 @@ class Events extends Component {
       StarredEvent: 'starred'
     }
     const order = this.props.events.sort((a, b) => a.created_at - b.created_at);
+    console.log('events:', this.props.events);
 
-    const repositoryResults = Object.keys(this.props.events.reduce((result, {type}) => {
+
+
+    let repositoryResults = Object.keys(this.props.events.reduce((result, {type}) => {
       if(!result[type]){
         result[type] = 1;
       } else {
@@ -25,6 +28,11 @@ class Events extends Component {
       }
       return item;
     });
+
+
+
+
+    console.log('reduce result:', repositoryResults)
 
     const allEvents = Object.values(this.props.events.reduce((result, {type}) => {
       if(!result[type]){
@@ -73,7 +81,6 @@ class Events extends Component {
       }
       return data
     }
-
     const finalInfo = finalize(mergeResults);
 
     return (
