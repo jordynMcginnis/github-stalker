@@ -110,12 +110,12 @@ class Followers extends Component {
       sorted.push(final)
     }
 
-    let fullySorted = sorted.sort(function(a,b){
+    const fullySorted = sorted.sort(function(a,b){
       return b.count - a.count;
     });
 
-    let valueInString = fullySorted.length - 1;
-    let num = parseFloat(valueInString);
+    const valueInString = fullySorted.length - 1;
+    const num = parseFloat(valueInString);
     const top10 = Math.ceil(num - (num * .10));
     const top30 = Math.ceil(num - (num * .30));
     const top50 = Math.ceil(num - (num * .60));
@@ -150,9 +150,9 @@ class Followers extends Component {
         count : count
       }
     })
+    return count;
+  }
 
-  return count;
-}
   render() {
     const link = `www.githubstalker.com/${this.props.link}`;
     const title = `Check out this app that shows my Github stalker,follower's locations, and events associated with my github account! ${link}`
@@ -162,51 +162,49 @@ class Followers extends Component {
       <div className='Followers'>
         <span className='stats'>Followers Stats - </span> Results based upon users who specify location within the USA.
         <div className= 'map-guide'>
-            <div className='most'> <div></div>More</div>
-            <div className='more'> </div>
-            <div className='middle'> </div>
-            <div className='least'> </div>
-            <div className='none'> Less <div></div></div>
-          </div>
-          {this.state.render === 'map'
-            ?  <div className='map'>
-          <USAMap customize={this.state.count}/>
-         </div>
-         : <div>placing all users on map now.. </div>
-          }
-
+            <div className='most'><div></div>More</div>
+            <div className='more'></div>
+            <div className='middle'></div>
+            <div className='least'></div>
+            <div className='none'>Less<div></div></div>
+        </div>
+        {this.state.render === 'map'
+          ? <div className='map'>
+              <USAMap customize={this.state.count}/>
+            </div>
+          : <div>placing all users on map now..</div>
+        }
         <a className="twitter-share-button"
           href={`https://twitter.com/share?url=${link}&text=${title}`}
           data-size="large"
           data-url="www.google.com">
           <button className='tweet'> Tweet </button>
         </a>
-
         <div className='popularFollower'>
-          <div className='most-pop'> <span className='stats'>Most popular followers - </span>Results based on github user who has the most followers that is following user. </div>
+          <div className='most-pop'> <span className='stats'>Most popular followers - </span>Results based on github user who has the most followers that is following user.</div>
           <div className='top'>
-            {person !== undefined ?
-              <FollowerBio
-                name= {person.name}
-                userName={person.login}
-                summary={person.bio}
-                joined={person.created_at}
-                location={person.location}
-                repos={person.public_repos}
-                photo={person.avatar_url}
-              />
+            {person !== undefined
+              ? <FollowerBio
+                  name= {person.name}
+                  userName={person.login}
+                  summary={person.bio}
+                  joined={person.created_at}
+                  location={person.location}
+                  repos={person.public_repos}
+                  photo={person.avatar_url}
+                />
               : null
             }
-            {person2 !== undefined ?
-              <FollowerBio
-                name= {person2.name}
-                userName={person2.login}
-                summary={person2.bio}
-                joined={person2.created_at}
-                location={person2.location}
-                repos={person2.public_repos}
-                photo={person2.avatar_url}
-              />
+            {person2 !== undefined
+              ? <FollowerBio
+                  name= {person2.name}
+                  userName={person2.login}
+                  summary={person2.bio}
+                  joined={person2.created_at}
+                  location={person2.location}
+                  repos={person2.public_repos}
+                  photo={person2.avatar_url}
+                />
               : null
             }
           </div>

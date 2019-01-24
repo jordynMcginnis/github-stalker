@@ -27,5 +27,3 @@ class Contributions extends Component {
 }
 
 export default Contributions;
-
-

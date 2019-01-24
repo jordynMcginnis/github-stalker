@@ -2,14 +2,9 @@ import React, { Component } from 'react';
 
 class Fan extends Component {
   render() {
-    let props = this.props;
-    console.log(props)
-    // let key = {
-    //   forked: 'Github users',
-    //   watched: 'Github users',
-    //   starred: ''
-    // }
-    let main = props.person;
+    const props = this.props;
+    const main = props.person;
+
     const result = props.events.reduce((result, {actor, repo}) => {
       if(!result[actor.login] && repo.name.indexOf(main) > -1){
         result[actor.login] = 1;
@@ -18,25 +13,27 @@ class Fan extends Component {
       }
       return result;
     }, {});
+
     let name = '';
     let count = 0;
+
     for(let key in result){
       if(result[key] > count){
         count = result[key];
         name = key;
       }
     };
-    let personEvent = props.events.filter(({actor}) => actor.login === name);
-    let background = personEvent[0].actor.avatar_url;
-    console.log(personEvent)
-    let edit = personEvent.map((item) => {
-      console.log(item.type);
+
+    const personEvent = props.events.filter(({actor}) => actor.login === name);
+    const background = personEvent[0].actor.avatar_url;
+
+    const edit = personEvent.map((item) => {
       if(item.type === 'WatchEvent'){
         item.type = 'watched'
       }
       return item;
     });
-    console.log(edit);
+
     return (
       <div className='Contributions'>
         <div className='fan-info'> <span className='stats'> Github Stalker - </span>  Results based on recent activity from Github users associated with account.</div>
@@ -49,4 +46,5 @@ class Fan extends Component {
     );
   }
 }
+
 export default Fan;

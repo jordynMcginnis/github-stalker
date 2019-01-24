@@ -5,6 +5,7 @@ class FollowerBio extends Component {
   render() {
     const Background = this.props.photo;
     const { userName, name } = this.props;
+
     return (
       <div className="follower-bio">
         <div className='follower-bio-photo' style={{backgroundImage: "url(" + Background + ")"}}></div>
