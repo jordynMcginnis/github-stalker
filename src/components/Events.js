@@ -9,9 +9,15 @@ class Events extends Component {
       StarredEvent: 'starred'
     }
     const order = this.props.events.sort((a, b) => a.created_at - b.created_at);
-    console.log('events:', this.props.events);
 
-
+    const hasKey = (val) => {
+      for(var key in actionsKey){
+        if(actionsKey[key] == val){
+          return true
+        }
+      }
+      return false
+    }
 
     let repositoryResults = Object.keys(this.props.events.reduce((result, {type}) => {
       if(!result[type]){
@@ -23,14 +29,13 @@ class Events extends Component {
     }, {})).map((item) => {
       if(actionsKey[item]){
         item = actionsKey[item];
+      } else if (hasKey(item) === true) {
+        item = item;
       } else {
         item = false;
       }
       return item;
     });
-
-
-
 
     console.log('reduce result:', repositoryResults)
 
