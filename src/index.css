@@ -80,7 +80,7 @@ body {
 }
 .options-i li {
   width: 15%;
-  height: 250px;
+  height: 150px;
   margin-left: 0px;
   padding: 0px;
   list-style-type: none;
@@ -94,10 +94,11 @@ body {
   max-width: 220px;
   padding: 20px;
   line-height: 25px;
+  font-size: 13px;
 }
 .icon {
-  font-size: 60px;
-  margin-bottom: 30px;
+  font-size: 26px;
+  margin-bottom: 5px;
   color: black;
 }
 .i-title {
@@ -367,6 +368,7 @@ body {
   min-height: 180px;
   max-height: 180px;
   border-radius: 3px;
+
 }
 .fan-name {
   display: flex;
@@ -375,14 +377,25 @@ body {
   color: black;
   font-weight: bold;
 }
+.fan-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
 .f-result {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
   height: 60px;
-  border-top-width: 1px;
+  width: 150px;
+  text-align: center;
+  padding: 10px;
+  color: grey;
+  border-style: solid;
+  border-radius: 3px;
   border-top-style: solid;
-  border-top-color: #b8e986;
+  margin: 5px;
+  align-items: center;
 }
 .Main {
   height: 90vh;

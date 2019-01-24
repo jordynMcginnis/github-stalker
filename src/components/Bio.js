@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class Bio extends Component {
   render() {
-    var Background = this.props.photo;
+    const Background = this.props.photo;
     const { name, userName, summary, joined, location, repos } = this.props;
 
     return (
