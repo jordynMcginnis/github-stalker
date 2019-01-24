@@ -3,14 +3,14 @@ import { BarChart, Bar } from 'recharts';
 
 class Events extends Component {
   render() {
-    const key = {
+    const actionsKey = {
       WatchEvent: 'watched',
       ForkEvent: 'forked',
       StarredEvent: 'starred'
     }
     const order = this.props.events.sort((a, b) => a.created_at - b.created_at);
 
-    const results = Object.keys(this.props.events.reduce((result, {type}) => {
+    const repositoryResults = Object.keys(this.props.events.reduce((result, {type}) => {
       if(!result[type]){
         result[type] = 1;
       } else {
@@ -18,15 +18,15 @@ class Events extends Component {
       }
       return result;
     }, {})).map((item) => {
-      if(key[item]){
-        item = key[item];
+      if(actionsKey[item]){
+        item = actionsKey[item];
       } else {
         item = false;
       }
       return item;
     });
 
-    const other = Object.values(this.props.events.reduce((result, {type}) => {
+    const allEvents = Object.values(this.props.events.reduce((result, {type}) => {
       if(!result[type]){
         result[type] = 1;
       } else {
@@ -35,7 +35,7 @@ class Events extends Component {
       return result;
     }, {}));
 
-    const randomCol = () => {
+    const randomColorGenerator = () => {
       var letters = '0123456789ABCDEF';
       var color = '#';
       for (var i = 0; i < 6; i++) {
@@ -44,12 +44,12 @@ class Events extends Component {
       return color;
     }
 
-    let red = results.reduce((result,item, index) => {
+    let mergeResults = repositoryResults.reduce((result,item, index) => {
       if(!!item){
         let obj = {};
         obj.name = item;
-        obj.uv = other[index];
-        obj.fill = randomCol();
+        obj.uv = allEvents[index];
+        obj.fill = randomColorGenerator();
         result.push(obj);
       }
       return result;
@@ -68,13 +68,13 @@ class Events extends Component {
         let obj = {};
         obj.name = arr[k];
         obj.uv = 1;
-        obj.fill = randomCol();
+        obj.fill = randomColorGenerator();
         data.push(obj);
       }
       return data
     }
 
-    let finalInfo = finalize(red);
+    const finalInfo = finalize(mergeResults);
 
     return (
       <div className='Events'>
