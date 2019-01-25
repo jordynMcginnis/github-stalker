@@ -13,7 +13,7 @@ class Instructions extends Component {
         <ul className='options-i'>
           <li>
             <GoLocation className='icon'/>
-            <span className='i-title'>View Followers Locations</span>
+            <span className='i-title'>View Follower's Locations</span>
             View all of your followers locations within the USA on a map.
           </li>
           <li>
