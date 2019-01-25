@@ -46,10 +46,13 @@ class Fan extends Component {
             <div className='fan-photo' style={{backgroundImage: "url(" + background + ")"}}></div>
             <p className='fan-name'>{name === '' ? 'No Stalker' : name}</p>
           </span>
-          <div className='fan-results'>
-            <span> ACTIVITY: </span>
-            {personEvent.map(({repo, created_at, type}) => <div className='f-result' key={repo.name}> {repo.name} repository was {type} on {created_at.slice(5,7)}/{created_at.slice(8,10)}/{created_at.slice(0,4)} by {name}</div>)}
-          </div>
+          {name === ''
+            ? null
+            : <div className='fan-results'>
+                <span> ACTIVITY: </span>
+                {personEvent.map(({repo, created_at, type}) => <div className='f-result' key={repo.name}> {repo.name} repository was {type} on {created_at.slice(5,7)}/{created_at.slice(8,10)}/{created_at.slice(0,4)} by {name}</div>)}
+              </div>
+          }
         </div>
       </div>
     );

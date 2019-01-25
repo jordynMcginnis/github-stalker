@@ -47,12 +47,10 @@ class Events extends Component {
     }, {}));
 
     const randomColorGenerator = () => {
-      var letters = '0123456789ABCDEF';
-      var color = '#';
-      for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
+      var max = 170;
+      var min = 90;
+      var green = Math.floor(Math.random() * (max - min + 1)) + min;
+      return "rgb(0," + green + ",0)";
     }
 
     let mergeResults = repositoryResults.reduce((result,item, index) => {
@@ -90,16 +88,18 @@ class Events extends Component {
       <div className='Events'>
         {order.length === 0
           ? <p>No events</p>
-          : <p> <span className='g-events'>Github Repository Events - </span> Amount of your repositories that have been forked, watched, and cloned from {order[order.length - 1].created_at.slice(5,7)}/{order[order.length - 1].created_at.slice(8,10)}/{order[order.length - 1].created_at.slice(0,4)} to  {order[0].created_at.slice(5,7)}/{order[0].created_at.slice(8,10)}/{order[0].created_at.slice(0,4)} from any github user.</p>
+          : <div>
+              <p> <span className='g-events'>Github Repository Events - </span> Amount of your repositories that have been forked, watched, and cloned from {order[order.length - 1].created_at.slice(5,7)}/{order[order.length - 1].created_at.slice(8,10)}/{order[order.length - 1].created_at.slice(0,4)} to  {order[0].created_at.slice(5,7)}/{order[0].created_at.slice(8,10)}/{order[0].created_at.slice(0,4)} from any github user.</p>
+              <div className='r'>
+                <BarChart width={450} height={300} data={finalInfo}>
+                  <Bar dataKey='uv' fill='#8884d8'/>
+                </BarChart>
+                <div className='e-items'>
+                  {finalInfo.map((item) => { return <div key={item.name} className='e-info'>{item.uv} of your repositories have been {item.name} by github users.</div>})}
+                </div>
+              </div>
+            </div>
         }
-        <div className='r'>
-          <BarChart width={450} height={300} data={finalInfo}>
-            <Bar dataKey='uv' fill='#8884d8'/>
-          </BarChart>
-          <div className='e-items'>
-            {finalInfo.map((item) => { return <div key={item.name} className='e-info'>{item.uv} of your repositories have been {item.name} by github users.</div>})}
-          </div>
-        </div>
       </div>
     );
   }
