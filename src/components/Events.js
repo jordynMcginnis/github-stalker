@@ -12,14 +12,14 @@ class Events extends Component {
 
     const hasKey = (val) => {
       for(var key in actionsKey){
-        if(actionsKey[key] == val){
+        if(actionsKey[key] === val){
           return true
         }
       }
       return false
     }
 
-    let repositoryResults = Object.keys(this.props.events.reduce((result, {type}) => {
+    const repositoryResults = Object.keys(this.props.events.reduce((result, {type}) => {
       if(!result[type]){
         result[type] = 1;
       } else {
@@ -30,14 +30,12 @@ class Events extends Component {
       if(actionsKey[item]){
         item = actionsKey[item];
       } else if (hasKey(item) === true) {
-        item = item;
+        return item;
       } else {
         item = false;
       }
       return item;
     });
-
-    console.log('reduce result:', repositoryResults)
 
     const allEvents = Object.values(this.props.events.reduce((result, {type}) => {
       if(!result[type]){

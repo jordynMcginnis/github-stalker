@@ -22,6 +22,13 @@ body {
 .recharts-wrapper {
   max-height: 150px !important;
 }
+.fan-all {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  min-width: 310px;
+  max-width: 700px;
+}
 .e-icon {
   width: 33%;
   font-size: 20px;
@@ -362,13 +369,12 @@ body {
   background-size: cover;
   background-position: center;
   height: 50%;
-  width: 50%;
+  width: 90%;
   min-width: 100px;
   max-width: 160px;
   min-height: 180px;
   max-height: 180px;
   border-radius: 3px;
-
 }
 .fan-name {
   display: flex;
@@ -377,24 +383,33 @@ body {
   color: black;
   font-weight: bold;
 }
+.fan-information {
+  width: 40%;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
 .fan-results {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
+  flex-direction: column;
+  width: 60%;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+.fan-results span {
+  font-weight: bold;
 }
 .f-result {
   display: flex;
   flex-wrap: wrap;
-  height: 60px;
-  width: 150px;
+  height: 50px;
+  width: 300px;
   text-align: center;
-  padding: 10px;
   color: grey;
-  border-style: solid;
-  border-radius: 3px;
-  border-top-style: solid;
-  margin: 5px;
   align-items: center;
 }
 .Main {
@@ -564,9 +579,6 @@ body {
   .us-state-map {
     height: 23vh;
   }
-  .follower-bio {
-    /*height: 40vh;*/
-  }
 }
 @media screen and (max-width: 480px) {
     .instructions {
@@ -601,6 +613,14 @@ body {
   }
   .instructions p  {
     margin-top: 2px;
+  }
+  .e-items {
+    width: 280px;
+    display: flex;
+    margin-top: 50px;
+  }
+  .e-info {
+    width: 60px;
   }
 }
 @media screen and (width: 320px) {
