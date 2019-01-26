@@ -181,7 +181,7 @@ class Followers extends Component {
           <button className='tweet'> Tweet </button>
         </a>
         <div className='popularFollower'>
-          <div className='most-pop'> <span className='stats'>Most popular followers - </span>Results based on github user who has the most followers that is following user.</div>
+          <div className='most-pop'> <span className='stats'>Most popular followers - </span>Results are based upon which of your followers have the most followers.</div>
           <div className='top'>
             {person !== undefined
               ? <FollowerBio
