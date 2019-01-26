@@ -89,7 +89,7 @@ class Events extends Component {
         {order.length === 0
           ? <p>No events</p>
           : <div>
-              <p> <span className='g-events'>Github Repository Events - </span> Amount of your repositories that have been forked, watched, and cloned from {order[order.length - 1].created_at.slice(5,7)}/{order[order.length - 1].created_at.slice(8,10)}/{order[order.length - 1].created_at.slice(0,4)} to  {order[0].created_at.slice(5,7)}/{order[0].created_at.slice(8,10)}/{order[0].created_at.slice(0,4)} from any github user.</p>
+              <p> <span className='g-events'>Github Repository Events - </span> Results based upon the amount of your repositories that have been forked, watched, and cloned from {order[order.length - 1].created_at.slice(5,7)}/{order[order.length - 1].created_at.slice(8,10)}/{order[order.length - 1].created_at.slice(0,4)} to  {order[0].created_at.slice(5,7)}/{order[0].created_at.slice(8,10)}/{order[0].created_at.slice(0,4)} from any github user.</p>
               <div className='r'>
                 <BarChart width={450} height={300} data={finalInfo}>
                   <Bar dataKey='uv' fill='#8884d8'/>
