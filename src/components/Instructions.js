@@ -14,7 +14,7 @@ class Instructions extends Component {
           <li>
             <GoLocation className='icon'/>
             <span className='i-title'>View Follower's Locations</span>
-            View all of your followers locations within the USA on a map.
+            View all of your follower's locations within the USA on a map.
           </li>
           <li>
             <GoPerson className='icon'/>
