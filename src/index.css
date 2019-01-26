@@ -529,14 +529,26 @@ body {
   font-size: 1em;
   border-width: 0px;
 }
+
 .incorrect {
+  font-size: 14px;
   margin: 0 auto;
+  width: 250px;
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  height: 90vh;
-  width: 100vw;
+  text-align: center;
   align-items: center;
-  font-size: 5vw;
+  margin-top: 40px;
+  color: grey;
+  line-height: 1.5;
+  font-weight: lighter;
+}
+.alert {
+  font-size: 60px;
+  color: #4c4c4c;
+  margin-bottom: 20px;
 }
 @media screen and (min-width: 1600px) {
   .results {

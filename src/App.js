@@ -4,6 +4,7 @@ import Nav from './components/Nav.js';
 import { getProfile, getContributions, getEvents, getIssues, fetchFollowers } from './utils/api.js';
 import Main from './components/Main.js';
 import Loading from './components/Loading.js';
+import GoAlert from 'react-icons/lib/go/alert';
 
 class App extends Component {
   constructor(props) {
@@ -169,15 +170,15 @@ class App extends Component {
             : null
           }
           {render === 'notFound'
-            ? <h1 className='incorrect'>Oops something went wrong...</h1>
+            ? <h1 className='incorrect'><GoAlert className='alert'/>Oops something went wrong...</h1>
             : null
           }
            {render === 'limit'
-            ? <h1 className='incorrect'>Api limit hit please come back in an hour or so...</h1>
+            ? <h1 className='incorrect'><GoAlert className='alert'/>Api limit hit please come back in an hour or so...</h1>
             : null
           }
           {render === 'noUserName'
-            ? <h1 className='incorrect'>Incorrect username</h1>
+            ? <h1 className='incorrect'><GoAlert className='alert'/>Incorrect username</h1>
             : null
           }
         </div>
