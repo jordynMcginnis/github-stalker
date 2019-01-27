@@ -5,6 +5,7 @@ class FollowerBio extends Component {
   render() {
     const Background = this.props.photo;
     const { userName, name } = this.props;
+    const link = `https://github.com/${userName}`;
 
     return (
       <div className="follower-bio">
@@ -13,7 +14,7 @@ class FollowerBio extends Component {
           <h1 className='h-link'>{name}</h1>
         </Link>
         <div className='follower-bio-info'>
-          <a href='www.github.com' target="_blank"><h3>@{userName}</h3></a>
+          <a target="blank" href={link}><h3>@{userName}</h3></a>
         </div>
       </div>
     );
