@@ -13,7 +13,7 @@ class Loading extends Component {
         <h2>LOADING....</h2>
         <h6>Gathering All {this.props.amount} Followers Data</h6>
         {this.props.amount > 200
-          ? <h6>May take a minute...</h6>
+          ? <h6>This may take a minute...</h6>
           : null
         }
       </div>
