@@ -14,7 +14,7 @@ class FollowerBio extends Component {
           <h1 className='h-link'>{name}</h1>
         </Link>
         <div className='follower-bio-info'>
-          <a target="blank" href={link}><h3>@{userName}a</h3></a>
+          <a target="blank" href={link}><h3>@{userName}</h3></a>
         </div>
       </div>
     );
