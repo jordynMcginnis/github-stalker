@@ -259,6 +259,10 @@ body {
   font-size: 1.7em;
   color: black;
 }
+.t-name a {
+  text-decoration: none;
+  color: black;
+}
 .follower-bio-photo {
   margin: 0 auto;
   background-size: cover;

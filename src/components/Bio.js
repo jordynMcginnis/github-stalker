@@ -5,15 +5,15 @@ class Bio extends Component {
   render() {
     const Background = this.props.photo;
     const { name, userName, summary, joined, location, repos } = this.props;
-
+    const githubUrl = `www.github.com/${userName}`;
     return (
       <div className="Bio">
         <div className='bio-photo' style={{backgroundImage: "url(" + Background + ")"}}></div>
-        <span><h2 className='t-name'>{name}</h2></span>
+          <span><h2 className='t-name'><Link to={userName}>{name}</Link></h2></span>
         <div className='bio-info'>
-          <Link to={userName}>
+          <a href={githubUrl}>
             <h3>@{userName}</h3>
-          </Link>
+          </a>
           <p className='sum'>{summary}</p>
           <p>Joined Github: {joined.slice(5,7)}/{joined.slice(8,10)}/{joined.slice(0,4)}</p>
           <p>Location: {location}</p>
