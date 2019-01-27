@@ -15,6 +15,7 @@ body {
   min-height: 718px;
   max-height: 800px;
   max-width: 1500px;
+  margin: 0 auto;
 }
 .instructions p {
   margin-top: -15px;
