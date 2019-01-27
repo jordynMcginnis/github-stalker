@@ -6,6 +6,7 @@ class Bio extends Component {
     const Background = this.props.photo;
     const { name, userName, summary, joined, location, repos } = this.props;
     const githubUrl = `https://github.com/${userName}`;
+
     return (
       <div className="Bio">
         <div className='bio-photo' style={{backgroundImage: "url(" + Background + ")"}}></div>
