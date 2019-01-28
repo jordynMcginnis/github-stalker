@@ -141,7 +141,7 @@ class App extends Component {
             ? <div className="App-intro">
                 <Bio
                   name= {name}
-                  userName={login}
+                  username={login}
                   summary={bio}
                   joined={created_at}
                   location={location}

@@ -186,7 +186,7 @@ class Followers extends Component {
             {person !== undefined
               ? <FollowerBio
                   name= {person.name}
-                  userName={person.login}
+                  username={person.login}
                   summary={person.bio}
                   joined={person.created_at}
                   location={person.location}
@@ -198,7 +198,7 @@ class Followers extends Component {
             {person2 !== undefined
               ? <FollowerBio
                   name= {person2.name}
-                  userName={person2.login}
+                  username={person2.login}
                   summary={person2.bio}
                   joined={person2.created_at}
                   location={person2.location}
